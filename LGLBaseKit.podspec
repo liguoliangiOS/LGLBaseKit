@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LGLBaseKit'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'LGLBaseKit is a convenient library'
 
 # This description is used to generate tags and improve search results.
