@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LGLBaseKit_Example' do
+  pod 'LGLBaseKit', :path => '../'
+
+  target 'LGLBaseKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
