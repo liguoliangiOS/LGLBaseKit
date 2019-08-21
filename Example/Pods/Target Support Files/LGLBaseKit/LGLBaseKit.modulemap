@@ -1,0 +1,6 @@
+framework module LGLBaseKit {
+  umbrella header "LGLBaseKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

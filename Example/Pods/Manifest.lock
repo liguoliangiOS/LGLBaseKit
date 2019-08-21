@@ -1,0 +1,16 @@
+PODS:
+  - LGLBaseKit (0.1.0)
+
+DEPENDENCIES:
+  - LGLBaseKit (from `../`)
+
+EXTERNAL SOURCES:
+  LGLBaseKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LGLBaseKit: 2b592a1083eaaa683368442b92b74fd0a8eea394
+
+PODFILE CHECKSUM: 68a7ac05bb75be4b0a964eef4a75995122ab6fc0
+
+COCOAPODS: 1.7.0

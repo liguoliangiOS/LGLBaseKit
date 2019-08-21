@@ -1,0 +1,22 @@
+{
+  "name": "LGLBaseKit",
+  "version": "0.1.0",
+  "summary": "A short description of LGLBaseKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/185226139@qq.com/LGLBaseKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "185226139@qq.com": "ligl@chinamobiad.com"
+  },
+  "source": {
+    "git": "https://github.com/185226139@qq.com/LGLBaseKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LGLBaseKit/Classes/**/*"
+}
