@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		203A5E4F2A34495CB32815B04AD3F8AB /* LGLBaseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DBC4E2E10206C64E1D644C8F51C0E /* LGLBaseKit-dummy.m */; };
+		217570C0230E2B620037F144 /* LGLDeviceSystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217570BD230E2B620037F144 /* LGLDeviceSystemInfo.swift */; };
+		217570C1230E2B620037F144 /* LGLDeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217570BE230E2B620037F144 /* LGLDeviceType.swift */; };
+		217570C2230E2B620037F144 /* LGLDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217570BF230E2B620037F144 /* LGLDeviceInfo.swift */; };
 		2175D553230CD8B000E8D17F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D54C230CD8B000E8D17F /* UIImageView+Extension.swift */; };
 		2175D554230CD8B000E8D17F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D54D230CD8B000E8D17F /* UIColor+Extension.swift */; };
 		2175D555230CD8B000E8D17F /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D54E230CD8B000E8D17F /* UILabel+Extension.swift */; };
@@ -50,6 +53,9 @@
 		1FA923471BA2A359F17E93FBC1A49D87 /* Pods-LGLBaseKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LGLBaseKit_Example-dummy.m"; sourceTree = "<group>"; };
 		206916962F8AD07B237BF154E8CE2BD4 /* LGLBaseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LGLBaseKit.modulemap; sourceTree = "<group>"; };
 		20BB92307DB0615B515E83E59B8910BE /* LGLBaseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LGLBaseKit.xcconfig; sourceTree = "<group>"; };
+		217570BD230E2B620037F144 /* LGLDeviceSystemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLDeviceSystemInfo.swift; sourceTree = "<group>"; };
+		217570BE230E2B620037F144 /* LGLDeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLDeviceType.swift; sourceTree = "<group>"; };
+		217570BF230E2B620037F144 /* LGLDeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLDeviceInfo.swift; sourceTree = "<group>"; };
 		2175D54C230CD8B000E8D17F /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		2175D54D230CD8B000E8D17F /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2175D54E230CD8B000E8D17F /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 		1FA3C1B9387B77785CA6A6C790CEA6DE /* LGLBaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				217570BC230E2B620037F144 /* LGLDeviceInfo */,
 				2175D55C230CD96B00E8D17F /* LGLPublicMethod */,
 				2175D54B230CD8B000E8D17F /* LGLExtension */,
 				723E4192B4F21DB6975EE7CA07D15D59 /* Pod */,
@@ -149,6 +156,17 @@
 			);
 			name = LGLBaseKit;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		217570BC230E2B620037F144 /* LGLDeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				217570BD230E2B620037F144 /* LGLDeviceSystemInfo.swift */,
+				217570BE230E2B620037F144 /* LGLDeviceType.swift */,
+				217570BF230E2B620037F144 /* LGLDeviceInfo.swift */,
+			);
+			name = LGLDeviceInfo;
+			path = LGLBaseKit/Classes/LGLDeviceInfo;
 			sourceTree = "<group>";
 		};
 		2175D54B230CD8B000E8D17F /* LGLExtension */ = {
@@ -420,10 +438,13 @@
 				2175D555230CD8B000E8D17F /* UILabel+Extension.swift in Sources */,
 				2175D554230CD8B000E8D17F /* UIColor+Extension.swift in Sources */,
 				2175D553230CD8B000E8D17F /* UIImageView+Extension.swift in Sources */,
+				217570C0230E2B620037F144 /* LGLDeviceSystemInfo.swift in Sources */,
 				2175D559230CD8B000E8D17F /* UITextField+Extension.swift in Sources */,
 				2175D556230CD8B000E8D17F /* UIButton+Extension.swift in Sources */,
+				217570C2230E2B620037F144 /* LGLDeviceInfo.swift in Sources */,
 				203A5E4F2A34495CB32815B04AD3F8AB /* LGLBaseKit-dummy.m in Sources */,
 				2175D55E230CD96B00E8D17F /* LGLPublicMethod.swift in Sources */,
+				217570C1230E2B620037F144 /* LGLDeviceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
