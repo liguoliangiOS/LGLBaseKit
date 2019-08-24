@@ -1,9 +1,9 @@
 # LGLBaseKit
 
-[![CI Status](https |//img.shields.io/travis/185226139@qq.com/LGLBaseKit.svg?style=flat)](https |//travis-ci.org/185226139@qq.com/LGLBaseKit)
-[![Version](https |//img.shields.io/cocoapods/v/LGLBaseKit.svg?style=flat)](https |//cocoapods.org/pods/LGLBaseKit)
-[![License](https |//img.shields.io/cocoapods/l/LGLBaseKit.svg?style=flat)](https |//cocoapods.org/pods/LGLBaseKit)
-[![Platform](https |//img.shields.io/cocoapods/p/LGLBaseKit.svg?style=flat)](https |//cocoapods.org/pods/LGLBaseKit)
+[![CI Status](https://img.shields.io/travis/185226139@qq.com/LGLBaseKit.svg?style=flat)](https://travis-ci.org/185226139@qq.com/LGLBaseKit)
+[![Version](https://img.shields.io/cocoapods/v/LGLBaseKit.svg?style=flat)](https://cocoapods.org/pods/LGLBaseKit)
+[![License](https://img.shields.io/cocoapods/l/LGLBaseKit.svg?style=flat)](https://cocoapods.org/pods/LGLBaseKit)
+[![Platform](https://img.shields.io/cocoapods/p/LGLBaseKit.svg?style=flat)](https://cocoapods.org/pods/LGLBaseKit)
 
 ## 前言
 
