@@ -20,15 +20,16 @@ pod 'LGLBaseKit'
 
 ## How to use ?
 
-####一、 导入头文件
+#### 一、 导入头文件
+
 ```
     import LGLBaseKit
 ```
 
-####二、 `LGLDevice`分类包含跟设备相关参数 （屏幕的宽高，设备型号判断，设备的参数， 系统参数等等）
 
-  ** LGLDevice分类使用： LGLDevice.screenBounds
-  
+#### 二、 `LGLDevice`分类包含跟设备相关参数 （屏幕的宽高，设备型号判断，设备的参数， 系统参数等等）
+
+  ```  LGLDevice分类使用： LGLDevice.screenBounds ```
   
   1.常用的设备的系数和机型判断
   
@@ -74,7 +75,7 @@ pod 'LGLBaseKit'
   | deviceName | String | 获取设备名称 |
 
 
-#### 三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
+####  三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
 
 ```
  1. UI控件，使用的时候都使用 类名或者实例 来创建或者设置
@@ -95,7 +96,7 @@ pod 'LGLBaseKit'
    
 ```
 
-#### 四、一些常见的方法包含在类 `LGLMethod`（会持续补充方法）
+####  四、一些常见的方法包含在类 `LGLMethod`（会持续补充方法）
 
 ```
  例如：
