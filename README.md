@@ -63,11 +63,10 @@ pod 'LGLBaseKit'
  
   2.系统配置信息
  
-  属性/变量/方法|返回值类型|说明
-   -|-|—
- 
-  systemVersion|String|获取系统版本
-  systemName|String|获取系统名称
+  |属性/变量/方法|返回值类型|说明|
+  |-|-|—|
+  |systemVersion|String|获取系统版本|
+  |systemName|String|获取系统名称|
   deviceModel | String | 获取系统名称 iPhone", "iPod touch"
   deviceLocalizedModel | String | 获取系统名称 localized version of model
   deviceUserName | String | 获取设备名称 如 XXX的iphone
