@@ -31,7 +31,7 @@ pod 'LGLBaseKit'
 
   ```  LGLDevice分类使用： LGLDevice.screenBounds ```
   
-  1.常用的设备的系数和机型判断
+#### 1.常用的设备的系数和机型判断
   
  | 属性/变量/方法 | 返回值类型 | 说明 |
  | --- | --- | --- |
@@ -57,7 +57,7 @@ pod 'LGLBaseKit'
   | iPhoneInch47 | Bool |判断4.7Inch （iPhone 6/6s/7/8） |
   | iPhoneInch4  | Bool | 判断4Inch （iPhone SE） |
  
-  2.系统配置信息
+ #### 2.系统配置信息
  
   | 属性/变量/方法 | 返回值类型 | 说明 |
   | --- | --- | --- |
@@ -73,6 +73,18 @@ pod 'LGLBaseKit'
   | deviceCpuCount | Int | 获取cpu核数 |
   | deviceCpuType | String | 获取cpu类型 |
   | deviceName | String | 获取设备名称 |
+  
+  #### 3.APP信息
+  
+  | 属性/变量/方法 | 返回值类型 | 说明 |
+  | --- | --- | --- |
+  
+   | appName |  String  | App名称 获取失败则返回空字符串 | 
+   | appBundleId |  String | App包名 获取失败则返回空字符串 |
+   | appVersion |  String | App版本号 获取失败则返回空字符串 |
+   | appIdfa | String |  AppIdfa 用户关闭，则返回空字符串 |
+   | appIdfv | String | AppIdfv 获取失败则返回空字符串 |
+   | appBundleName | String | app工程名称 获取失败则返回空字符串
 
 
 ####  三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
@@ -86,6 +98,8 @@ pod 'LGLBaseKit'
     //类实例设置
     let imageV =  UIImageView()
     imageV.lgl_imagView("图片名称") 
+    
+    
   
   2. 颜色
      UIColor(0xefefef)

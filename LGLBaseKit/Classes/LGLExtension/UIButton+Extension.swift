@@ -34,6 +34,16 @@ public extension UIButton {
         return lgl_basekit_button(title, titleColor, imageName, font)
     }
     
+    ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中图片
+    class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String,  _ selectedImageName: String,  _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
+        return lgl_basekit_button(title, titleColor, imageName, selectedImageName, font, target, action)
+    }
+    
+    ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中背景图片
+    class func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ selectedBackgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
+        return lgl_basekit_button(title, titleColor, backgroundImage, selectedBackgroundImage, font, target, action)
+    }
+    
     //MARK: ---- 实例方法
     
     ////设置button 标题文字、文字颜色、文字大小
@@ -115,10 +125,25 @@ fileprivate extension UIButton {
         return button
     }
     
+    ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中图片
+    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ imageName: String,  _ selectedImageName: String,  _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
+        let button = lgl_basekit_button(title, titleColor, .clear, font, target, action)
+        button.lgl_basekit_buttonImage(imageName, selectedImageName)
+        return button
+    }
+    
     ////初始化button  设置 标题文字、文字颜色、文字大小、背景图片
     class func lgl_basekit_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         let button = lgl_basekit_button(title, titleColor, .clear, font, target, action)
         button.setBackgroundImage(backgroundImage, for: .normal)
+        return button
+    }
+    
+    ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中背景图片
+    class func lgl_basekit_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ selectedBackgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
+        let button = lgl_basekit_button(title, titleColor, .clear, font, target, action)
+        button.setBackgroundImage(backgroundImage, for: .normal)
+        button.setBackgroundImage(selectedBackgroundImage, for: .selected)
         return button
     }
     

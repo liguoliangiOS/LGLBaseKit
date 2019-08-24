@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AdSupport
 
 public class LGLDevice {
     
@@ -122,7 +123,7 @@ public class LGLDevice {
         
     ///获取系统版本
     public static var systemVersion: String {
-        return LGLDeviceSystem.systemName
+        return LGLDeviceSystem.systemVersion
     }
     
     ///获取系统名称
@@ -178,12 +179,107 @@ public class LGLDevice {
     public static var deviceName: String {
         return LGLDeviceSystem.deviceName
     }
+    
+    // MARK: ------- APP信息
+    
+    ///App名称 获取失败则返回空字符串
+    public static var appName: String  {
+        return lgl_basekit_appName()
+    }
+    
+    /// App包名 获取失败则返回空字符串
+    public static var appBundleId: String  {
+        if let identifier = Bundle.main.bundleIdentifier {
+            return identifier
+        }
+        return ""
+    }
+    
+    /// App版本号 获取失败则返回空字符串
+    public static var appVersion: String  {
+        if let bundleDic = Bundle.main.infoDictionary, let varsion = bundleDic["CFBundleShortVersionString"] {
+            return (varsion as! String)
+        }
+        return ""
+    }
+    
+    /// AppIdfa 用户关闭，则返回空字符串
+    public static var appIdfa: String {
+        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        }
+        return ""
+    }
+    
+    /// AppIdfv 获取失败则返回空字符串
+    public static var appIdfv: String {
+        if let idForVendor = UIDevice.current.identifierForVendor {
+            return idForVendor.uuidString
+        }
+        return ""
+    }
+    
+    ///app工程名称 获取失败则返回空字符串
+    public static var appBundleName:  String {
+        return lgl_basekit_appBundleName()
+    }
 }
 
 
 
 
 private extension LGLDevice {
+    
+    // MARK: --------------------------- 设备系统信息 ---------------------
+    
+    ///App名称 获取失败则返回空字符串
+     private class func lgl_basekit_appName() -> String  {
+        if let bundleDic = Bundle.main.infoDictionary, let name = bundleDic["CFBundleDisplayName"] {
+            return (name as! String)
+        }
+        return ""
+    }
+    
+    /// App包名 获取失败则返回空字符串
+     private class func lgl_basekit_appBundleId() -> String  {
+        if let identifier = Bundle.main.bundleIdentifier {
+            return identifier
+        }
+        return ""
+    }
+    
+    /// App版本号 获取失败则返回空字符串
+     private class func lgl_basekit_appVersion() -> String  {
+        if let bundleDic = Bundle.main.infoDictionary, let varsion = bundleDic["CFBundleShortVersionString"] {
+            return (varsion as! String)
+        }
+        return ""
+    }
+    
+    /// AppIdfa 用户关闭，则返回空字符串
+     private class func lgl_basekit_appIdfa() -> String {
+        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        }
+        return ""
+    }
+    
+    /// AppIdfv 获取失败则返回空字符串
+     private class func lgl_basekit_appIdfv() -> String {
+        if let idForVendor = UIDevice.current.identifierForVendor {
+            return idForVendor.uuidString
+        }
+        return ""
+    }
+    
+    ///app工程名称 获取失败则返回空字符串
+     private class func lgl_basekit_appBundleName() -> String {
+        if let bundleDic = Bundle.main.infoDictionary, let bundleName = bundleDic["CFBundleName"] {
+            return (bundleName as! String)
+        }
+        return ""
+    }
+    
     
     //MARK: ----  获取当前设备分辨率 ----
 
