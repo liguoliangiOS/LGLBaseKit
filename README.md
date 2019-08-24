@@ -27,7 +27,7 @@ pod 'LGLBaseKit'
 
 ####二、 LGLDevice分类包含跟设备相关参数 （屏幕的宽高，设备型号判断，设备的参数， 系统参数等等）
 
-```
+
   使用：比如 LGLDevice.screenBounds
   
   ##LGLDevice分类
@@ -83,7 +83,7 @@ pod 'LGLBaseKit'
   deviceCpuCount | Int | 获取cpu核数
   deviceCpuType | String | 获取cpu类型
   deviceName | String | 获取设备名称
-```
+
 
 #### 三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
 
