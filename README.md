@@ -25,12 +25,10 @@ pod 'LGLBaseKit'
     import LGLBaseKit
 ```
 
-####二、 LGLDevice分类包含跟设备相关参数 （屏幕的宽高，设备型号判断，设备的参数， 系统参数等等）
+####二、 `LGLDevice`分类包含跟设备相关参数 （屏幕的宽高，设备型号判断，设备的参数， 系统参数等等）
 
-
-  使用：比如 LGLDevice.screenBounds
+  ** LGLDevice分类使用： LGLDevice.screenBounds
   
-  ##LGLDevice分类
   
   1.常用的设备的系数和机型判断
   
@@ -48,7 +46,7 @@ pod 'LGLBaseKit'
   | widthRatio | CGFloat | 屏幕横向适配系数 以iphone6 为基准 |
   | heightRatio | CGFloat | 屏幕纵向适配系数 以iphone6 为基准 |
   | phoneModelSize| CGSize | 获取当前设备分辨率 |
-  | phoneEqualTo(_ size | CGSize) | Bool | 比较两个设备的分辨率(跟当前的设备比较) |
+  | phoneEqualTo(_ size: CGSize) | Bool | 比较两个设备的分辨率(跟当前的设备比较) |
   | iPadType | Bool | 判断是否是IPad |
   | iPhoneXType | Bool | 判断是否是齐刘海设备系列 |
   | iPhoneInch65 | Bool | 判断6.5Inch （iPhone XS Max） |
@@ -69,7 +67,7 @@ pod 'LGLBaseKit'
   | deviceUserName | String | 获取设备名称 如 XXX的iphone |
   | deviceDiskTotalSize | String | 获取总的内存 |
   | deviceAvalibleDiskSize | String | 获取可用的内存 |
-  | supplier | String 获取运营商 |
+  | supplier | String | 获取运营商 |
   | deviceIP | String | 获取当前设备IP |
   | deviceCpuCount | Int | 获取cpu核数 |
   | deviceCpuType | String | 获取cpu类型 |
@@ -97,7 +95,7 @@ pod 'LGLBaseKit'
    
 ```
 
-#### 四、一些常见的方法包含在类 LGLMethod（会持续补充方法）
+#### 四、一些常见的方法包含在类 `LGLMethod`（会持续补充方法）
 
 ```
  例如：
