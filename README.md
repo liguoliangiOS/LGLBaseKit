@@ -63,16 +63,12 @@ pod 'LGLBaseKit'
  
   2.系统配置信息
  
- | Objective-C |  | Swift |
- | --- | --- | --- |
- | [Objective-C 框架搭建](#1) |  | [Swift 基础框架](#a) |
- | [Objective-C 网络请求](#2) |  | [Swift 网络请求及数据解析](#b) |
- | [Objective-C 数据解析](#3) |  | [Swift 扩展框架](#c) |
  
-  |属性/变量/方法||返回值类型||说明|
-  |-|-|—|
-  |systemVersion||String||获取系统版本|
-  |systemName||String||获取系统名称|
+
+  | 属性/变量/方法 | 返回值类型 | 说明 |
+  | --- | --- | --- |
+  | systemVersion | String | 获取系统版本 |
+  | systemName | String | 获取系统名称 |
   deviceModel | String | 获取系统名称 iPhone", "iPod touch"
   deviceLocalizedModel | String | 获取系统名称 localized version of model
   deviceUserName | String | 获取设备名称 如 XXX的iphone
