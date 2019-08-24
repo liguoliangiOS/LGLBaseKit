@@ -34,51 +34,46 @@ pod 'LGLBaseKit'
   
   1.常用的设备的系数和机型判断
   
-   属性/变量/方法 | 返回值类型 | 说明
-   -|-|—
-  screenBounds | CGRect  | 设备整个屏幕的大小
-  screenWidth  | CGFloat | 设备屏幕的宽
-  screenHeight | CGFloat | 设备屏幕的高
-  screenScale  | CGFloat | 设备屏幕的倍数 @2x @3x
-  navigationHeight | CGFloat | 导航栏高度
-  statusBarHeight  | CGFloat | 状态栏的高度
-  navigationBarHeight | CGFloat | navigationBar的高度
-  tabBarHeight | CGFloat | Tabbar的高度
-  bottomSafeAreaHeight | CGFloat | 底部安全域的高度
- 
-  widthRatio | CGFloat | 屏幕横向适配系数 以iphone6 为基准
-  heightRatio | CGFloat | 屏幕纵向适配系数 以iphone6 为基准
- 
-  phoneModelSize| CGSize | 获取当前设备分辨率
-  phoneEqualTo(_ size | CGSize) | Bool | 比较两个设备的分辨率(跟当前的设备比较)
-  iPadType | Bool | 判断是否是IPad
-  iPhoneXType | Bool | 判断是否是齐刘海设备系列
- 
-  iPhoneInch65 | Bool | 判断6.5Inch （iPhone XS Max）
-  iPhoneInch61 | Bool | 判断6.1Inch （iPhone XR）
-  iPhoneInch58 | Bool |判断5.8Inch （iPhone XS/ iPhone X）
-  iPhoneInch55 | Bool |判断5.5Inch （iPhone 6/6s/7/8 Plus）
-  iPhoneInch47 | Bool |判断4.7Inch （iPhone 6/6s/7/8）
-  iPhoneInch4  | Bool | 判断4Inch （iPhone SE）
+ | 属性/变量/方法 | 返回值类型 | 说明 |
+ | --- | --- | --- |
+  | screenBounds | CGRect  | 设备整个屏幕的大小 |
+  | screenWidth  | CGFloat | 设备屏幕的宽 |
+  | screenHeight | CGFloat | 设备屏幕的高 |
+  | screenScale  | CGFloat | 设备屏幕的倍数 @2x @3x |
+  | navigationHeight | CGFloat | 导航栏高度 |
+  | statusBarHeight  | CGFloat | 状态栏的高度 |
+  | navigationBarHeight | CGFloat | navigationBar的高度 |
+  | tabBarHeight | CGFloat | Tabbar的高度 |
+  | bottomSafeAreaHeight | CGFloat | 底部安全域的高度 |
+  | widthRatio | CGFloat | 屏幕横向适配系数 以iphone6 为基准 |
+  | heightRatio | CGFloat | 屏幕纵向适配系数 以iphone6 为基准 |
+  | phoneModelSize| CGSize | 获取当前设备分辨率 |
+  | phoneEqualTo(_ size | CGSize) | Bool | 比较两个设备的分辨率(跟当前的设备比较) |
+  | iPadType | Bool | 判断是否是IPad |
+  | iPhoneXType | Bool | 判断是否是齐刘海设备系列 |
+  | iPhoneInch65 | Bool | 判断6.5Inch （iPhone XS Max） |
+  | iPhoneInch61 | Bool | 判断6.1Inch （iPhone XR） |
+  | iPhoneInch58 | Bool |判断5.8Inch （iPhone XS/ iPhone X） |
+  | iPhoneInch55 | Bool |判断5.5Inch （iPhone 6/6s/7/8 Plus） |
+  | iPhoneInch47 | Bool |判断4.7Inch （iPhone 6/6s/7/8） |
+  | iPhoneInch4  | Bool | 判断4Inch （iPhone SE） |
  
   2.系统配置信息
  
- 
-
   | 属性/变量/方法 | 返回值类型 | 说明 |
   | --- | --- | --- |
   | systemVersion | String | 获取系统版本 |
   | systemName | String | 获取系统名称 |
-  deviceModel | String | 获取系统名称 iPhone", "iPod touch"
-  deviceLocalizedModel | String | 获取系统名称 localized version of model
-  deviceUserName | String | 获取设备名称 如 XXX的iphone
-  deviceDiskTotalSize | String | 获取总的内存
-  deviceAvalibleDiskSize | String | 获取可用的内存
-  supplier | String 获取运营商
-  deviceIP | String | 获取当前设备IP
-  deviceCpuCount | Int | 获取cpu核数
-  deviceCpuType | String | 获取cpu类型
-  deviceName | String | 获取设备名称
+  | deviceModel | String | 获取系统名称 iPhone", "iPod touch" |
+  | deviceLocalizedModel | String | 获取系统名称 localized version of model |
+  | deviceUserName | String | 获取设备名称 如 XXX的iphone |
+  | deviceDiskTotalSize | String | 获取总的内存 |
+  | deviceAvalibleDiskSize | String | 获取可用的内存 |
+  | supplier | String 获取运营商 |
+  | deviceIP | String | 获取当前设备IP |
+  | deviceCpuCount | Int | 获取cpu核数 |
+  | deviceCpuType | String | 获取cpu类型 |
+  | deviceName | String | 获取设备名称 |
 
 
 #### 三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
