@@ -11,37 +11,37 @@ import UIKit
 public extension UILabel {
     
     ///初始化label 字体、字体颜色 背景颜色、 字体大小、对齐方式、行数
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, textAlignment, numberOfLines)
     }
     
     ///初始化label 字体、字体颜色 字体大小、对齐方式
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self {
         return lgl_basekit_classLabel(text, textColor, font, textAlignment)
     }
     
     ///初始化label 字体、字体颜色 字体大小、行数
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self {
         return lgl_basekit_classLabel(text, textColor, font, numberOfLines)
     }
     
     ///初始化label 字体、字体颜色 字体大小
-    class func lgl_label(_ text: String, _ textColor: UIColor,  _ font: UIFont) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor,  _ font: UIFont) -> Self {
         return lgl_basekit_classLabel(text, textColor, .clear,  font)
     }
     
     ///初始化label 字体、字体颜色、背景颜色、 字体大小、对齐方式
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, textAlignment)
     }
     
     ///初始化label 字体、字体颜色、背景颜色、 字体大小行数
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, numberOfLines)
     }
     
     ///初始化label 字体、字体颜色、背景颜色、 字体大小
-    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont) -> UILabel {
+    class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font)
     }
     
@@ -104,7 +104,7 @@ public extension UILabel {
 
 fileprivate extension UILabel {
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> Self {
         
         let label = self.init()
         label.text = text
@@ -116,28 +116,28 @@ fileprivate extension UILabel {
         return label
     }
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self {
         return lgl_basekit_classLabel(text, textColor, .clear, font, textAlignment, 1)
     }
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self {
         return lgl_basekit_classLabel(text, textColor, .clear, font, .left, numberOfLines)
     }
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor,  _ font: UIFont) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor,  _ font: UIFont) -> Self {
         return lgl_basekit_classLabel(text, textColor, .clear,  font, .left, 1)
     }
     
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, textAlignment, 1)
     }
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, .left, numberOfLines)
     }
     
-    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont) -> UILabel {
+    class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont) -> Self {
         return lgl_basekit_classLabel(text, textColor, backgroundColor, font, .left, 1)
     }
     

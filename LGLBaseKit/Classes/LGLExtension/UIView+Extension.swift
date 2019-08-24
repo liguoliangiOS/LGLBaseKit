@@ -11,12 +11,12 @@ import UIKit
 public extension UIView {
     
     ///初始化View 设置背景颜色
-    class func lgl_view(_ backgroundColor: UIColor) -> UIView {
+    class func lgl_view(_ backgroundColor: UIColor) -> Self {
         return lgl_basekit_view(backgroundColor)
     }
     
     ///初始化View 设置背景颜色、圆角
-    class func lgl_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat) -> UIView {
+    class func lgl_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat) -> Self {
         return lgl_basekit_view(backgroundColor, cornerRadius)
     }
     
@@ -136,13 +136,13 @@ public extension UIView {
 
 fileprivate extension UIView {
     
-    class func lgl_basekit_view(_ backgroundColor: UIColor) -> UIView {
+    class func lgl_basekit_view(_ backgroundColor: UIColor) -> Self {
         let view = self.init()
         view.backgroundColor = backgroundColor
         return view
     }
     
-    class func lgl_basekit_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat) -> UIView {
+    class func lgl_basekit_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat) -> Self {
         let view = lgl_basekit_view(backgroundColor)
         view.layer.masksToBounds = true
         view.layer.cornerRadius = cornerRadius

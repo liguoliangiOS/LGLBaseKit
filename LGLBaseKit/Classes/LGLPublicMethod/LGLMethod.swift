@@ -1,5 +1,5 @@
 //
-//  LGLPublicMethod.swift
+//  LGLMethod.swift
 //  LGLBaseKit
 //
 //  Created by Passer on 2019/8/21.
@@ -7,40 +7,26 @@
 
 import UIKit
 
-public extension NSObject {
+public class LGLMethod {
     
     ///返回原始图片
-    class func lgl_originalImage(_ imageName: String) -> UIImage? {
+    public class func originalImage(_ imageName: String) -> UIImage? {
         return lgl_basekit_originalImage(imageName)
     }
-    ///返回原始图片
-    func lgl_originalImage(_ imageName: String) -> UIImage? {
-        return NSObject.lgl_basekit_originalImage(imageName)
-    }
     
     ///等比缩放图片获取高度
-    class func lgl_imageHeight(_ imageW: CGFloat, _ imageH: CGFloat, _ realW: CGFloat) -> CGFloat {
+    public class func imageHeight(_ imageW: CGFloat, _ imageH: CGFloat, _ realW: CGFloat) -> CGFloat {
         return lgl_basekit_imageHeight(imageW, imageH, realW)
     }
-    ///等比缩放图片获取高度
-    func lgl_imageHeight(_ imageW: CGFloat, _ imageH: CGFloat, _ realW: CGFloat) -> CGFloat {
-        return NSObject.lgl_basekit_imageHeight(imageW, imageH, realW)
-    }
     
     ///根据root控制器，返回当前控制器
-    class func lgl_currentVC() -> UIViewController? {
+    public class func currentVC() -> UIViewController? {
         return lgl_basekit_currentVC()
-    }
-    
-    ///根据root控制器，返回当前控制器
-    func lgl_currentVC() -> UIViewController? {
-        return NSObject.lgl_basekit_currentVC()
     }
 }
 
 
-
-fileprivate extension NSObject {
+private extension LGLMethod {
     
     ///返回原始图片
     class func lgl_basekit_originalImage(_ imageName: String) -> UIImage? {

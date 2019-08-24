@@ -10,27 +10,27 @@ import UIKit
 public extension UIButton {
     
     ////初始化button  设置 标题文字、文字颜色、文字大小
-    class func lgl_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         return lgl_basekit_button(title, titleColor, backgroundColor, font, target, action)
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小
-    class func lgl_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         return lgl_basekit_button(title, titleColor, font, target, action)
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小、图片
-    class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         return lgl_basekit_button(title, titleColor, imageName, font, target, action)
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小、背景图片
-    class func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         return lgl_basekit_button(title, titleColor, backgroundImage, font, target, action)
     }
     
     ////初始化button 没有点击  设置 标题文字、文字颜色、文字大小、图片
-    class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont) -> UIButton {
+    class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont) -> Self {
         return lgl_basekit_button(title, titleColor, imageName, font)
     }
     
@@ -91,7 +91,7 @@ public extension UIButton {
 fileprivate extension UIButton {
     
     ////初始化button  设置 标题文字、文字颜色、文字大小
-    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         let button = self.init(type: .custom)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
@@ -102,12 +102,12 @@ fileprivate extension UIButton {
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小
-    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         return lgl_basekit_button(title, titleColor, .clear, font, target, action)
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小、图片
-    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         let button = lgl_basekit_button(title, titleColor, .clear, font, target, action)
         if let image = UIImage(named: imageName) {
             button.setImage(image, for: .normal)
@@ -116,14 +116,14 @@ fileprivate extension UIButton {
     }
     
     ////初始化button  设置 标题文字、文字颜色、文字大小、背景图片
-    class func lgl_basekit_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> UIButton {
+    class func lgl_basekit_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self {
         let button = lgl_basekit_button(title, titleColor, .clear, font, target, action)
         button.setBackgroundImage(backgroundImage, for: .normal)
         return button
     }
     
     ////初始化button 没有点击  设置 标题文字、文字颜色、文字大小、图片
-    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont) -> UIButton {
+    class func lgl_basekit_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont) -> Self {
         let button = self.init(type: .custom)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)

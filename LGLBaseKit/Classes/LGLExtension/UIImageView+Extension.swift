@@ -5,23 +5,22 @@
 //  Created by Passer on 2019/8/21.
 //
 
-
 import UIKit
 
 public extension UIImageView {
     
     ///设置图片初始化
-    class func lgl_imagView(_ imageName:String) -> UIImageView {
+    class func lgl_imagView(_ imageName:String) -> Self {
         return lgl_basekit_imagView(imageName)
     }
     
     ///设置图片和圆角初始化
-    class func lgl_imagView(_ imageName:String, _ cornerRadius:CGFloat) -> UIImageView {
+    class func lgl_imagView(_ imageName:String, _ cornerRadius:CGFloat) -> Self {
         return lgl_basekit_imagView(imageName, cornerRadius)
     }
     
     ///设置图片和圆角、背景色初始化
-    class func lgl_imagView(_ imageName:String, _ backgroundColor: UIColor, _ cornerRadius:CGFloat) -> UIImageView {
+    class func lgl_imagView(_ imageName:String, _ backgroundColor: UIColor, _ cornerRadius:CGFloat) -> Self {
         return lgl_basekit_imagView(imageName, backgroundColor, cornerRadius)
     }
     
@@ -46,7 +45,7 @@ public extension UIImageView {
 
 fileprivate extension UIImageView {
     
-    class func lgl_basekit_imagView(_ imageName:String) -> UIImageView {
+    class func lgl_basekit_imagView(_ imageName:String) -> Self {
         let imageView = self.init()
         if let image = UIImage(named: imageName) {
             imageView.image = image
@@ -54,14 +53,14 @@ fileprivate extension UIImageView {
         return imageView
     }
     
-    class func lgl_basekit_imagView(_ imageName:String, _ cornerRadius:CGFloat) -> UIImageView {
+    class func lgl_basekit_imagView(_ imageName:String, _ cornerRadius:CGFloat) -> Self {
         let imageView = lgl_basekit_imagView(imageName)
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = cornerRadius
         return imageView
     }
     
-    class func lgl_basekit_imagView(_ imageName:String, _ backgroundColor: UIColor, _ cornerRadius:CGFloat) -> UIImageView {
+    class func lgl_basekit_imagView(_ imageName:String, _ backgroundColor: UIColor, _ cornerRadius:CGFloat) -> Self {
         let imageView = lgl_basekit_imagView(imageName, cornerRadius)
         imageView.backgroundColor = backgroundColor
         return imageView

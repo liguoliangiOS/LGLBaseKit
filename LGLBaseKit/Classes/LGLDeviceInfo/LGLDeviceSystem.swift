@@ -1,5 +1,5 @@
 //
-//  LGLDeviceSystemInfo.swift
+//  LGLDeviceSystem.swift
 //  LGLBaseKit
 //
 //  Created by Passer on 2019/8/22.
@@ -8,96 +8,72 @@
 import UIKit
 import CoreTelephony
 
-
-public class LGLDeviceSystemInfo: NSObject {
+internal class LGLDeviceSystem {
     
     ///获取系统版本
-    public class func lgl_deviceSystemVersion() -> String {
+    static var systemVersion: String {
         return UIDevice.current.systemVersion
     }
     
     ///获取系统名称
-    public class func lgl_deviceSystemName() -> String {
+    static var systemName: String {
         return UIDevice.current.systemName
     }
     
     ///获取系统名称 iPhone", "iPod touch"
-    public class func lgl_deviceModel() -> String {
+   static var deviceModel: String {
         return UIDevice.current.model
     }
     
     ///获取系统名称 localized version of model
-    public class func lgl_deviceLocalizedModel() -> String {
+    static var deviceLocalizedModel: String {
         return UIDevice.current.localizedModel
     }
     
     ///获取设备名称 如 XXX的iphone
-    public class func lgl_deviceUserName() -> String {
+    static var deviceUserName: String {
         return UIDevice.current.name
     }
     ///获取总的内存
-    public class func lgl_deviceDiskTotalSize() -> String {
+    static var deviceDiskTotalSize: String {
         return lgl_basekit_fileSizeToString(fileSize: lgl_basekit_getTotalDiskSize())
     }
     
     ///获取可用的内存
-    public class func lgl_deviceAvalibleDiskSize() -> String {
+    static var deviceAvalibleDiskSize: String {
         return lgl_basekit_fileSizeToString(fileSize: lgl_basekit_getAvailableDiskSize())
     }
     
     ///获取运营商
-    public class func lgl_deviceSupplier() -> String {
+    static var supplier: String {
         return lgl_basekit_deviceSupplier()
     }
     
     /// 获取当前设备IP
-    public class func lgl_deviceIP() -> String {
+    static var deviceIP: String {
         return lgl_basekit_deviceIP()
     }
     
     ///获取cpu核数
-    public class func lgl_deviceCpuCount() -> Int {
+    static var deviceCpuCount: Int {
         return lgl_basekit_deviceCpuCount()
     }
     
     ///获取cpu类型
-    public class func lgl_deviceCpuType() -> String {
+    static var deviceCpuType: String {
         return lgl_basekit_deviceCpuType()
     }
     
     ///获取设备名称
-    public class func lgl_deviceName() -> String {
+    static var deviceName: String {
         return lgl_basekit_deviceName()
     }
-    
-    ///常用的上传激活日志需要的数据
-    public class func lgl_appCommonActiveParmas() ->  [String: Any] {
-        
-        var pramas = [String: Any]()
-        let screenW = UIScreen.main.bounds.width
-        let screenH = UIScreen.main.bounds.height
-        let scale = UIScreen.main.scale
-        pramas.updateValue(UIDevice.current.localizedModel, forKey: "brand") // 手机品牌
-        pramas.updateValue(lgl_deviceName(), forKey: "model") // 设备型号
-        pramas.updateValue(lgl_deviceSystemVersion(), forKey: "version") // 手机版本号
-        pramas.updateValue(lgl_deviceSupplier(), forKey: "operator") //// 运营商
-        pramas.updateValue(lgl_deviceDiskTotalSize(), forKey: "memory") //// 总内存
-        pramas.updateValue(lgl_deviceAvalibleDiskSize(), forKey: "free_memory") //可用内存
-        pramas.updateValue(lgl_deviceCpuType(), forKey: "cpu_name")//cpu 类型
-        pramas.updateValue(lgl_deviceCpuCount(), forKey: "cpu_num") // cpu核数
-        pramas.updateValue("\(screenW)/\(screenH)", forKey: "screen_size")
-        pramas.updateValue("\(screenW * scale)/\(screenH * scale)", forKey: "screen_ratio")
-        return pramas
-    }
 }
-
-
-
 
 //MARK: ---------------------------------- 内部具体实现方法 ----------------------------------------
 
 
-extension LGLDeviceSystemInfo {
+private extension LGLDeviceSystem {
     
     //MARK:  ---  获取运营商
     

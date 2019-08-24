@@ -10,22 +10,22 @@ import UIKit
 public extension UITextField {
     
     ///初始化TextField  字体大小、字体颜色、提示文字、边框样式 、背景色
-    class func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> UITextField {
+    class func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self {
         return lgl_basekit_textField(textColor, backgroundColor, font, placeholder, borderStyle)
     }
     
     ///初始化TextField 字体大小、字体颜色、提示文字、边框样式
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> UITextField {
+    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self {
         return lgl_basekit_textField(textColor, font, placeholder, borderStyle)
     }
     
     ///初始化TextField 字体大小、字体颜色、提示文字
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) -> UITextField {
+    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) -> Self {
         return lgl_basekit_textField(textColor, font, placeholder)
     }
     
     ///初始化TextField 字体大小、字体颜色
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont) -> UITextField {
+    class func lgl_textField(_ textColor: UIColor, _ font: UIFont) -> Self {
         return lgl_basekit_textField(textColor, font)
     }
     
@@ -78,13 +78,18 @@ public extension UITextField {
     func lgl_textFieldChangeClearButton(_ imageName: String) {
         lgl_basekit_textFieldChangeClearButton(imageName)
     }
+    
+    ///切圆角
+    func lgl_textFieldCornerRadius(_ cornerRadius: CGFloat) {
+        lgl_basekit_textFieldCornerRadius(cornerRadius)
+    }
 }
 
 
 
 fileprivate extension UITextField {
     
-    class func lgl_basekit_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> UITextField {
+    class func lgl_basekit_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self {
         let textField = self.init()
         textField.textColor = textColor
         textField.font = font
@@ -94,15 +99,15 @@ fileprivate extension UITextField {
         return textField
     }
     
-    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> UITextField {
+    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self {
         return lgl_basekit_textField(textColor, .clear, font, placeholder, borderStyle)
     }
     
-    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) -> UITextField {
+    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) -> Self {
         return lgl_basekit_textField(textColor, font, placeholder, .none)
     }
     
-    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont) -> UITextField {
+    class func lgl_basekit_textField(_ textColor: UIColor, _ font: UIFont) -> Self {
         return lgl_basekit_textField(textColor, font, "", .none)
     }
     
@@ -161,6 +166,11 @@ fileprivate extension UITextField {
             self.rightView = rightView
             self.rightViewMode = .always
         }
+    }
+    
+    func lgl_basekit_textFieldCornerRadius(_ cornerRadius: CGFloat) {
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = cornerRadius
     }
     
     func lgl_basekit_textFieldChangeClearButton(_ imageName: String) {

@@ -18,7 +18,7 @@ public extension UIColor {
         )
     }
     ///十六进制字符串形式颜色值
-    func lgl_color(_ hex: String) -> UIColor {
+    class func lgl_color(_ hex: String) -> UIColor {
         return lgl_basekit_hexColor(hex)
     }
 }
@@ -26,7 +26,7 @@ public extension UIColor {
 /// 定义16进制值颜色
 fileprivate extension UIColor {
     
-    private func lgl_basekit_hexColor(_ hex: String) -> UIColor {
+    private class func lgl_basekit_hexColor(_ hex: String) -> UIColor {
         var cstr = hex.trimmingCharacters(in:  CharacterSet.whitespacesAndNewlines).uppercased() as NSString;
         if(cstr.length < 6){
             return UIColor.clear;
