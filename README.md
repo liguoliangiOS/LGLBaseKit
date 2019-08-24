@@ -84,7 +84,7 @@ pod 'LGLBaseKit'
    | appVersion |  String | App版本号 获取失败则返回空字符串 |
    | appIdfa | String |  AppIdfa 用户关闭，则返回空字符串 |
    | appIdfv | String | AppIdfv 获取失败则返回空字符串 |
-   | appBundleName | String | app工程名称 获取失败则返回空字符串
+   | appBundleName | String | app工程名称 获取失败则返回空字符串 |
 
 
 ####  三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
