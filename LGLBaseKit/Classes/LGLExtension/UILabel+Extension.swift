@@ -99,13 +99,9 @@ public extension UILabel {
 }
 
 
-
-
-
 fileprivate extension UILabel {
     
     class func lgl_basekit_classLabel(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> Self {
-        
         let label = self.init()
         label.text = text
         label.textColor = textColor

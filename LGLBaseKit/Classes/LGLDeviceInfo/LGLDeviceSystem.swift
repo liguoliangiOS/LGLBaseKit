@@ -242,7 +242,8 @@ private extension LGLDeviceSystem {
         case "iPhone11,8":                          return "iPhone XR"
         case "iPhone11,2":                          return "iPhone XS"
         case "iPhone11,6":                          return "iPhone XS Max"
-            
+        case "iPhone12,1":                          return "iPhone 11"
+
         ///iPad
         case "iPad1,1":                             return "iPad"
         case "iPad1,2":                             return "iPad 3G"
@@ -260,7 +261,7 @@ private extension LGLDeviceSystem {
         case "iPad3,5":                             return "iPad 4"
         case "iPad3,6":                             return "iPad 4 (GSM+CDMA)"
         case "iPad4,1":                             return "iPad Air (WiFi)"
-        case "iPad4,2":                             return "iPad Air (Cellular)"
+        case "iPad4,2", "iPad4,3":                             return "iPad Air (Cellular)"
         case "iPad4,4":                             return "iPad Mini 2 (WiFi)"
         case "iPad4,5":                             return "iPad Mini 2 (Cellular)"
         case "iPad4,6":                             return "iPad Mini 2"
@@ -284,14 +285,17 @@ private extension LGLDeviceSystem {
         case "iPad7,5","iPad7,6":                   return "iPad (6th generation)"
         case "iPad8,1","iPad8,2","iPad8,3","iPad8,4":  return "iPad Pro (11-inch)"
         case "iPad8,5","iPad8,6","iPad8,7","iPad8,8":  return "iPad Pro (12.9-inch) (3rd generation)"
-            
+        case "iPad11,1","iPad11,2":                  return "iPad mini (5th generation)"
+        case "iPad11,3","iPad11,4":                   return "iPad Air (3rd generation)"
+
         //Apple Watch
         case "Watch1,1","Watch1,2":                 return "Apple Watch (1st generation)"
         case "Watch2,6","Watch2,7":                 return "Apple Watch Series 1"
         case "Watch2,3","Watch2,4":                 return "Apple Watch Series 2"
-        case "Watch4,1","Watch4,2","Watch4,3","Watch4,4":    return "Apple Watch Series 3"
-        case "Watch3,1","Watch3,2","Watch3,3","Watch3,4":    return "Apple Watch Series 4"
-            
+        case "Watch4,1","Watch4,2","Watch4,3","Watch4,4":    return "Apple Watch Series 4"
+        case "Watch3,1","Watch3,2","Watch3,3","Watch3,4":    return "Apple Watch Series 3"
+  
+
             
         ///AppleTV
         case "AppleTV2,1":                          return "Apple TV 2"
@@ -301,13 +305,16 @@ private extension LGLDeviceSystem {
         case "AppleTV6,2":                          return "Apple TV 4K"
             
         ///AirPods
-        case "AirPods1,1":                          return "AirPods"
-            
+        case "AirPods1,1":                          return "AirPods (1st generation)"
+        case "AirPods2,1":                          return "AirPods (2nd generation)"
+       
+        ///HomePod
+        case "AudioAccessory1,1", "AudioAccessory1,2":      return "HomePod"
         ///Simulator
         case "i386":                                return "Simulator"
         case "x86_64":                              return "Simulator"
             
-        default:                                    return "unknow"
+        default:                                    return identifier
         }
     }
     

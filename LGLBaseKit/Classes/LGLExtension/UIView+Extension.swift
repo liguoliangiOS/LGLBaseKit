@@ -35,6 +35,7 @@ public extension UIView {
         lgl_basekit_verticalGradientLayer(startColor, endColor, cornerRadius)
     }
     
+    ///设置多角圆角
     func lgl_roundingCorner(_ corners: UIRectCorner, _ radii: CGFloat) {
         lgl_basekit_roundingCorner(corners, radii)
     }
@@ -57,6 +58,26 @@ public extension UIView {
     ///view转图片
     func lgl_viewToImage() -> UIImage {
         return lgl_basekit_viewToImage()
+    }
+    
+    /// 点击手势(默认代理和target相同)
+    func lgl_tapGesture(_ target: Any?,_ action: Selector,_ numberOfTapsRequired: Int = 1) {
+        lgl_basekit_tapGesture(target, action, numberOfTapsRequired)
+    }
+    
+    /// 长按手势(默认代理和target相同)
+    func lgl_longGesture(_ target: Any?,_ action: Selector,_ minDuration: TimeInterval = 0.5) {
+        lgl_basekit_longGesture(target, action, minDuration)
+    }
+    
+    /// 部分圆角
+    func lgl_partOfRadius(_ corners: UIRectCorner,_ radius: CGFloat) {
+        lgl_basekit_partOfRadius(corners, radius)
+    }
+    
+    /// 截图(带导航则用导航控制器的view或keywindow)
+    func lgl_screenshotImage() -> UIImage? {
+        return lgl_basekit_screenshotImage()
     }
 }
 
@@ -129,6 +150,78 @@ public extension UIView {
             frame = tempFrame
         }
     }
+    
+    /// left值
+    var left: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.origin.x = newValue
+            frame = tempFrame
+        }
+    }
+    
+    /// top值
+    var top: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.origin.y = newValue
+            frame = tempFrame
+        }
+    }
+    
+    /// right值
+    var right: CGFloat {
+        get {
+            return frame.origin.x + frame.size.width
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.origin.x = newValue - frame.size.width
+            frame = tempFrame
+        }
+    }
+    
+    /// bottom值
+    var bottom: CGFloat {
+        get {
+            return frame.origin.y + frame.size.height
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.origin.y = newValue - frame.size.height
+            frame = tempFrame
+        }
+    }
+    
+    /// size值
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.size = newValue
+            frame = tempFrame
+        }
+    }
+    
+    /// origin值
+    var origin: CGPoint {
+        get {
+            return frame.origin
+        }
+        set {
+            var tempFrame = frame
+            tempFrame.origin = newValue
+            frame = tempFrame
+        }
+    }
 }
 
 
@@ -161,6 +254,56 @@ fileprivate extension UIView {
 //MARK: --- 常用的方法
 
 fileprivate extension UIView {
+    
+    /// 点击手势(默认代理和target相同)
+    func lgl_basekit_tapGesture(_ target: Any?,_ action: Selector,_ numberOfTapsRequired: Int = 1) {
+        let tapGesture = UITapGestureRecognizer(target: target, action: action)
+        tapGesture.numberOfTapsRequired = numberOfTapsRequired
+        tapGesture.delegate = target as? UIGestureRecognizerDelegate
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    /// 长按手势(默认代理和target相同)
+    func lgl_basekit_longGesture(_ target: Any?,_ action: Selector,_ minDuration: TimeInterval = 0.5) {
+        let longGesture = UILongPressGestureRecognizer(target: target, action: action)
+        longGesture.minimumPressDuration = minDuration
+        longGesture.delegate = target as? UIGestureRecognizerDelegate
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(longGesture)
+    }
+    
+    /// 部分圆角
+    func lgl_basekit_partOfRadius(_ corners: UIRectCorner,_ radius: CGFloat) {
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.frame = self.bounds
+        shapeLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
+        self.layer.mask = shapeLayer
+    }
+    
+    /// 截图(带导航则用导航控制器的view或keywindow)
+    func lgl_basekit_screenshotImage() -> UIImage? {
+        UIGraphicsBeginImageContext(self.bounds.size)
+        if self.responds(to: #selector(UIView.drawHierarchy(in:afterScreenUpdates:))) {
+            self.drawHierarchy(in: self.bounds, afterScreenUpdates: false)
+        } else if self.layer.responds(to: #selector(CALayer.render(in:) )) {
+            self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        } else {
+            return nil
+        }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    
+    ///设置圆角或者边框
+    func lgl_basekit_borderRadius(_ cornerRadius: CGFloat, _ masksToBounds: Bool, _ borderColor:UIColor = .clear, _ borderWidth: CGFloat = 0.0)  {
+        self.layer.masksToBounds = masksToBounds
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+    }
     
     /// 水平渐变
     func lgl_basekit_horizontalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat) {

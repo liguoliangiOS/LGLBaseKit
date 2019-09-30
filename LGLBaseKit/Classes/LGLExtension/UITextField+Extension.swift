@@ -69,6 +69,11 @@ public extension UITextField {
         lgl_basekit_textFieldSetLeftView(leftView)
     }
     
+    ///设置左边距
+    func lgl_textFieldSetLeftPadding(_ padding: CGFloat) {
+        lgl_basekit_textFieldSetLeftPadding(padding)
+    }
+    
     ///设置RightView
     func lgl_textFieldSetRightView(_ rightView: UIView?) {
         lgl_basekit_textFieldSetRightView(rightView)
@@ -150,8 +155,13 @@ fileprivate extension UITextField {
     }
     
     func lgl_basekit_textFieldPlaceholder(_ color: UIColor, _ font: UIFont) {
-        self.setValue(color, forKeyPath: "_placeholderLabel.textColor")
-        self.setValue(font, forKeyPath:"_placeholderLabel.font")
+        if #available(iOS 13.0, *) {
+           let arrStr = NSMutableAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font])
+           self.attributedPlaceholder = arrStr
+        } else {
+           self.setValue(color, forKeyPath: "_placeholderLabel.textColor")
+           self.setValue(font, forKeyPath:"_placeholderLabel.font")
+        }
     }
     
     func lgl_basekit_textFieldSetLeftView(_ leftView: UIView?) {
@@ -159,6 +169,12 @@ fileprivate extension UITextField {
             self.leftView = leftView
             self.leftViewMode = .always
         }
+    }
+    
+    func lgl_basekit_textFieldSetLeftPadding(_ padding: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
     }
     
     func lgl_basekit_textFieldSetRightView(_ rightView: UIView?) {

@@ -42,7 +42,7 @@ public class LGLDevice {
     
     /// navigationBar的高度
     public static var navigationBarHeight: CGFloat {
-        return iPhoneXType ? 88.0 : 64.0
+        return 44.0
     }
     
     /// Tabbar的高度
@@ -75,6 +75,7 @@ public class LGLDevice {
     }
    
     ///比较两个设备的分辨率(跟当前的设备比较)
+    @discardableResult
     public class func phoneEqualTo(_ size: CGSize) -> Bool {
         return lgl_basekit_phoneEqualTo(size)
     }

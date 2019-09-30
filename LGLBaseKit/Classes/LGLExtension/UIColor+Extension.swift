@@ -21,6 +21,29 @@ public extension UIColor {
     class func lgl_color(_ hex: String) -> UIColor {
         return lgl_basekit_hexColor(hex)
     }
+    
+    static var lgl_randomColor: UIColor {
+        let red = CGFloat(arc4random()%256)/255.0
+        let green = CGFloat(arc4random()%256)/255.0
+        let blue = CGFloat(arc4random()%256)/255.0
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
+    
+    ///适配暗黑模式设置颜色 dark -- 暗黑模式下的颜色   light -- 其他模式下的颜色
+    class func lgl_traitColor(_ dark:UIColor = .white, _ light:UIColor) -> UIColor {
+       if #available(iOS 13.0, *) {
+           let color = UIColor{ (traitCollection) -> UIColor in
+               if traitCollection.userInterfaceStyle == .dark {
+                   return dark
+               } else {
+                   return light
+               }
+           }
+           return color
+       } else {
+           return light
+       }
+    }
 }
 
 /// 定义16进制值颜色
@@ -59,7 +82,6 @@ fileprivate extension UIColor {
         Scanner.init(string: bStr).scanHexInt32(&b);
         return
             UIColor.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0);
-        
     }
 }
 

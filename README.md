@@ -15,8 +15,40 @@ LGLBaseKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'LGLBaseKit'
+    1.全部导入
+    
+        pod 'LGLBaseKit'
+        
+    2. 部分导入
+    
+        //只导入LGLExtension创建和修改view的扩展方法
+        pod 'LGLBaseKit/LGLExtension'
+        
+        //只导入LGLPublicMethod常用的方法
+        pod 'LGLBaseKit/LGLExtension'
+        
+        //只导入LGLDeviceInfo设备的参数（包括app信息和手机系统信息）
+        pod 'LGLBaseKit/LGLDeviceInfo'
+        
+        //只导入LGLAlert简单封装系统的alert和action弹窗
+        pod 'LGLBaseKit/LGLAlert'
+        //只导入LGLCrypt加密（Md5加密，AESAES（128+CBC+PKCS7Padding），RSA(SHA1withRSA)加签，验签，加解密等）
+        pod 'LGLBaseKit/LGLCrypt'
+     
 ```
+## 0.0.6版本部分重要更新摘要
+
+#### 1. 支持部分文件导入
+#### 2. UIColor新增用于适配`iOS13`的暗黑和其他模式的颜色设置
+ ```
+    ///适配暗黑模式设置颜色 dark -- 暗黑模式下的颜色   light -- 其他模式下的颜色
+    UIColor.lgl_traitColor(darkColor, lightColor) -> UIColor
+    UIColor.lgl_traitColor(lightColor) -> UIColor
+ ```
+#### 3. 修复UITextField在`iOS13`用`KVC`设置`_placeholderLabel`颜色和字体大小，崩溃问题
+#### 4. 新增`LGLAlert`系统的提示弹框
+#### 5. 新增`LGLCrypt`加密工具
+
 
 ## How to use ?
 
@@ -333,7 +365,11 @@ pod 'LGLBaseKit'
     
     ///使用举例
     UIColor(0xefefef)
-    UIColor.lgl_color("#efefef")
+    UIColor.lgl_color("#efefef") -> UIColor
+    
+    ///适配暗黑模式设置颜色 dark -- 暗黑模式下的颜色   light -- 其他模式下的颜色
+    UIColor.lgl_traitColor(darkColor, lightColor) -> UIColor
+    UIColor.lgl_traitColor(lightColor) -> UIColor
 ```
      
   `3. 字符串`
@@ -428,8 +464,92 @@ pod 'LGLBaseKit'
 
     ///根据root控制器，返回当前控制器
     LGLMethod.currentVC() -> UIViewController? 
+    
+    ///根据颜色生成图片（UIImage）
+    LGLMethod.imageWithColor(_ color: UIColor, _ size: CGSize) -> UIImage
+    
+    ///打开链接  OpenUrl
+    @discardableResult
+    LGLMethod.openUrl(_ url: URL) -> Bool
+    
+    ///拨打电话
+    LGLMethod.lgl_callPhone(_ number: String)
+    
+    /// 跳转appStore 评论
+    LGLMethod.lgl_appStoreComment(_ appId: String)
 ```
 
+####  四、LGLAlert系统的提示弹框
+
+    ```
+    ///aler提示框
+    LGLAlert.lgl_alert(_ title: String, _ message: String, _ showTime: TimeInterval = 1.0)
+    
+    ///单个按钮的alert提示框
+     LGLAlert.lgl_alert(_ title: String, _ message: String, _ actionTitle:String, _ actionStyle:UIAlertAction.Style = .default, handler:((UIAlertAction) -> Void)? = nil)
+    
+    ///两个按钮的alert提示框
+     LGLAlert.lgl_alert(_ title: String, _ message: String, _ cancelTitle:String, cancelHandler:((UIAlertAction) -> Void)? = nil, _ confirmTitle:String, confirmHandler:((UIAlertAction) -> Void)? = nil)
+    
+    ///ationSheet 提示框
+     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ showTime: TimeInterval = 1.0)
+    
+    ///单个按钮的ationSheet提示框
+     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ actionTitle:String, _ actionStyle:UIAlertAction.Style = .default, handler:((UIAlertAction) -> Void)? = nil)
+    
+    ///两个按钮的ationSheet提示框
+     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ cancelTitle:String, cancelHandler:((UIAlertAction) -> Void)? = nil, _ confirmTitle:String, confirmHandler:((UIAlertAction) -> Void)? = nil)
+     
+     ///一个按钮的filed弹窗
+     LGLAlert.lgl_field(_ title: String, _ message: String, _ buttonTitle: String, _ fieldHolder:String = "", handler:@escaping ((_ filedValue: String?) -> Void))
+     
+     ///两个按钮的filed弹窗
+     LGLAlert.lgl_field(_ title: String, _ message: String,_ cancelTitle:String,_ fieldHolder:String = "", cancelHandler:((UIAlertAction) -> Void)? = nil,  _ buttonTitle: String,  confirmHandler:@escaping ((_ filedValue: String?) -> Void))
+    
+    ```
+
+
+#### 五、LGLCrypt加密工具
+
+        包含 Md5加密，AESAES（128+CBC+PKCS7Padding），RSA加解密、加签和验签
+        
+    ```
+         --------- Md5 --------------
+         
+         LGLCrypt.lgl_md5Encrypt(_ text: String ) -> String
+         
+         --------- AES --------------
+         
+         ///AES加密（[UInt8]c形式的key和iv）
+         LGLCrypt.lgl_aesEncrypt(_ text: String, _ key:[UInt8], _ iv:[UInt8]) -> String?
+         
+         ///AES解密([UInt8]c形式的key和iv)
+         LGLCrypt.lgl_aesDecrypt(_ aesText: String, _ key:[UInt8], _ iv:[UInt8]) -> String?
+         
+         ///AES加密(字符串形式的key和iv)
+         LGLCrypt.lgl_aesEncryptStr(_ text: String, _ key:String, _ iv:String) -> String?
+         
+         ///AES解密(字符串形式的key和iv)
+         LGLCrypt.lgl_aesDecryptStr(_ aesText: String, _ key:String, _ iv:String) -> String?
+         
+         --------- RSA --------------
+          
+        ///  RSA签名
+         LGLCrypt.lgl_rsaSignWithSHA1(_ text: String, _ privateKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> String?
+         
+         
+         /// RSA验签
+         LGLCrypt.lgl_rsaSignVerifyWithSHA1(_ originalStr: String, _ siginStr: String, _ publicKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> Bool
+         
+         /// RSA公钥加密
+         LGLCrypt.lgl_rsaEncrypt(_ text: String, _ publicKey: String, _ publicKeychainTag:String = LGL_RSA_PUBLIC_KEY) -> String?
+         
+         /// RSA私钥解密
+         LGLCrypt.lgl_rsaDecrypt(_ encryptData: String, _ privateKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> String?
+         
+         /// RSA公钥解密
+         LGLCrypt.lgl_rsaDecryptPublic(_ encryptData: String, _ publicKey: String, _ publicKeychainTag:String = LGL_RSA_PUBLIC_KEY) -> String?
+    ```
 
 ## Author
 

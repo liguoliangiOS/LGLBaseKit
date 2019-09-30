@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		203A5E4F2A34495CB32815B04AD3F8AB /* LGLBaseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DBC4E2E10206C64E1D644C8F51C0E /* LGLBaseKit-dummy.m */; };
+		21740BFF23346D55005111D5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740BFE23346D55005111D5 /* UIImage+Extension.swift */; };
+		21740C012334776C005111D5 /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C002334776C005111D5 /* NotificationCenter+Extension.swift */; };
+		21740C032334A4C3005111D5 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C022334A4C3005111D5 /* UINavigationController+Extension.swift */; };
+		21740C052334A690005111D5 /* UITabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C042334A690005111D5 /* UITabBarController+Extension.swift */; };
+		21740C072334A9B2005111D5 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C062334A9B2005111D5 /* UIBarButtonItem+Extension.swift */; };
+		21740C0D2334BFC6005111D5 /* LGLAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C0C2334BFC6005111D5 /* LGLAlert.swift */; };
 		217570C0230E2B620037F144 /* LGLDeviceSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217570BD230E2B620037F144 /* LGLDeviceSystem.swift */; };
 		217570C2230E2B620037F144 /* LGLDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217570BF230E2B620037F144 /* LGLDevice.swift */; };
 		2175D553230CD8B000E8D17F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D54C230CD8B000E8D17F /* UIImageView+Extension.swift */; };
@@ -19,6 +25,8 @@
 		2175D559230CD8B000E8D17F /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D552230CD8B000E8D17F /* UITextField+Extension.swift */; };
 		2175D55E230CD96B00E8D17F /* LGLMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D55D230CD96B00E8D17F /* LGLMethod.swift */; };
 		2175D560230CDBA500E8D17F /* NSRegularExpression+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175D55F230CDBA500E8D17F /* NSRegularExpression+Extension.swift */; };
+		21774BA52335C5EF008ED73C /* BaseCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21774BA42335C5EF008ED73C /* BaseCrypt.swift */; };
+		21774BA72335C7AE008ED73C /* LGLCrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21774BA62335C7AE008ED73C /* LGLCrypt.swift */; };
 		78A4AAC3E6364CB68B8E97C4C0C8C268 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		9F8BCC6B6DFA93CE88102798163BE8C2 /* Pods-LGLBaseKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA923471BA2A359F17E93FBC1A49D87 /* Pods-LGLBaseKit_Example-dummy.m */; };
 		A715BF168B2F45101740518D5091C0C2 /* Pods-LGLBaseKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0CB41B3CA33915E43FF395391D1FF6 /* Pods-LGLBaseKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +60,12 @@
 		1FA923471BA2A359F17E93FBC1A49D87 /* Pods-LGLBaseKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LGLBaseKit_Example-dummy.m"; sourceTree = "<group>"; };
 		206916962F8AD07B237BF154E8CE2BD4 /* LGLBaseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LGLBaseKit.modulemap; sourceTree = "<group>"; };
 		20BB92307DB0615B515E83E59B8910BE /* LGLBaseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LGLBaseKit.xcconfig; sourceTree = "<group>"; };
+		21740BFE23346D55005111D5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		21740C002334776C005111D5 /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
+		21740C022334A4C3005111D5 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		21740C042334A690005111D5 /* UITabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extension.swift"; sourceTree = "<group>"; };
+		21740C062334A9B2005111D5 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		21740C0C2334BFC6005111D5 /* LGLAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGLAlert.swift; sourceTree = "<group>"; };
 		217570BD230E2B620037F144 /* LGLDeviceSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLDeviceSystem.swift; sourceTree = "<group>"; };
 		217570BF230E2B620037F144 /* LGLDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLDevice.swift; sourceTree = "<group>"; };
 		2175D54C230CD8B000E8D17F /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -63,6 +77,8 @@
 		2175D552230CD8B000E8D17F /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		2175D55D230CD96B00E8D17F /* LGLMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLMethod.swift; sourceTree = "<group>"; };
 		2175D55F230CDBA500E8D17F /* NSRegularExpression+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extension.swift"; sourceTree = "<group>"; };
+		21774BA42335C5EF008ED73C /* BaseCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCrypt.swift; sourceTree = "<group>"; };
+		21774BA62335C7AE008ED73C /* LGLCrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGLCrypt.swift; sourceTree = "<group>"; };
 		2EB90DB41CB631B67647B5627AD1FAE1 /* Pods-LGLBaseKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LGLBaseKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3F37C17521D0E937C7C9EE3BB88E3474 /* Pods-LGLBaseKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LGLBaseKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +162,8 @@
 		1FA3C1B9387B77785CA6A6C790CEA6DE /* LGLBaseKit */ = {
 			isa = PBXGroup;
 			children = (
+				21774BA32335C5D9008ED73C /* LGLCrypt */,
+				21740C0B2334BFBA005111D5 /* LGLAlert */,
 				217570BC230E2B620037F144 /* LGLDeviceInfo */,
 				2175D55C230CD96B00E8D17F /* LGLPublicMethod */,
 				2175D54B230CD8B000E8D17F /* LGLExtension */,
@@ -154,6 +172,15 @@
 			);
 			name = LGLBaseKit;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		21740C0B2334BFBA005111D5 /* LGLAlert */ = {
+			isa = PBXGroup;
+			children = (
+				21740C0C2334BFC6005111D5 /* LGLAlert.swift */,
+			);
+			name = LGLAlert;
+			path = LGLBaseKit/Classes/LGLAlert;
 			sourceTree = "<group>";
 		};
 		217570BC230E2B620037F144 /* LGLDeviceInfo */ = {
@@ -177,6 +204,11 @@
 				2175D551230CD8B000E8D17F /* String+Extension.swift */,
 				2175D552230CD8B000E8D17F /* UITextField+Extension.swift */,
 				2175D55F230CDBA500E8D17F /* NSRegularExpression+Extension.swift */,
+				21740BFE23346D55005111D5 /* UIImage+Extension.swift */,
+				21740C002334776C005111D5 /* NotificationCenter+Extension.swift */,
+				21740C022334A4C3005111D5 /* UINavigationController+Extension.swift */,
+				21740C042334A690005111D5 /* UITabBarController+Extension.swift */,
+				21740C062334A9B2005111D5 /* UIBarButtonItem+Extension.swift */,
 			);
 			name = LGLExtension;
 			path = LGLBaseKit/Classes/LGLExtension;
@@ -189,6 +221,16 @@
 			);
 			name = LGLPublicMethod;
 			path = LGLBaseKit/Classes/LGLPublicMethod;
+			sourceTree = "<group>";
+		};
+		21774BA32335C5D9008ED73C /* LGLCrypt */ = {
+			isa = PBXGroup;
+			children = (
+				21774BA42335C5EF008ED73C /* BaseCrypt.swift */,
+				21774BA62335C7AE008ED73C /* LGLCrypt.swift */,
+			);
+			name = LGLCrypt;
+			path = LGLBaseKit/Classes/LGLCrypt;
 			sourceTree = "<group>";
 		};
 		24026174183359521D3B92DE3C70577C /* Pods-LGLBaseKit_Tests */ = {
@@ -429,18 +471,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21740BFF23346D55005111D5 /* UIImage+Extension.swift in Sources */,
 				2175D557230CD8B000E8D17F /* UIView+Extension.swift in Sources */,
+				21740C032334A4C3005111D5 /* UINavigationController+Extension.swift in Sources */,
 				2175D560230CDBA500E8D17F /* NSRegularExpression+Extension.swift in Sources */,
+				21740C012334776C005111D5 /* NotificationCenter+Extension.swift in Sources */,
 				2175D558230CD8B000E8D17F /* String+Extension.swift in Sources */,
 				2175D555230CD8B000E8D17F /* UILabel+Extension.swift in Sources */,
 				2175D554230CD8B000E8D17F /* UIColor+Extension.swift in Sources */,
 				2175D553230CD8B000E8D17F /* UIImageView+Extension.swift in Sources */,
 				217570C0230E2B620037F144 /* LGLDeviceSystem.swift in Sources */,
+				21740C0D2334BFC6005111D5 /* LGLAlert.swift in Sources */,
 				2175D559230CD8B000E8D17F /* UITextField+Extension.swift in Sources */,
 				2175D556230CD8B000E8D17F /* UIButton+Extension.swift in Sources */,
+				21774BA52335C5EF008ED73C /* BaseCrypt.swift in Sources */,
 				217570C2230E2B620037F144 /* LGLDevice.swift in Sources */,
 				203A5E4F2A34495CB32815B04AD3F8AB /* LGLBaseKit-dummy.m in Sources */,
 				2175D55E230CD96B00E8D17F /* LGLMethod.swift in Sources */,
+				21740C052334A690005111D5 /* UITabBarController+Extension.swift in Sources */,
+				21774BA72335C7AE008ED73C /* LGLCrypt.swift in Sources */,
+				21740C072334A9B2005111D5 /* UIBarButtonItem+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

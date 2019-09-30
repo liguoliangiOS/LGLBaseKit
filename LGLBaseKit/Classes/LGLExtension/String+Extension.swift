@@ -232,6 +232,7 @@ public extension String {
 
 public extension String {
     
+    
     ///获取某一段文字的CGSize
     func lgl_getStrSize(_ font: UIFont, _ maxWidth: CGFloat) -> CGSize {
         return lgl_basekit_getStrSize(font, maxWidth)
@@ -271,10 +272,29 @@ public extension String {
     func lgl_getLineHeightSize(_ lineHeight: CGFloat, _ font: UIFont, _ maxW: CGFloat) -> CGSize {
         return lgl_basekit_getLineHeightWithSize(lineHeight, font, maxW)
     }
+    
+    ///文字用*号替换处理(eg:15118999 -> 151*****99)
+    func lgl_replaceWithAsterisk(_ range: NSRange) -> String  {
+        return lgl_basekit_replaceWithAsterisk(range)
+    }
 }
 
 
 fileprivate extension String {
+    
+    ///文字用*号替换处理
+    func lgl_basekit_replaceWithAsterisk(_ range: NSRange) -> String {
+        if self.count == 0 {
+            return ""
+        }
+        var reultStr = NSString(string: self)
+        var satrtLoctaion = range.location
+        for _ in 0 ..< range.length {
+            reultStr = reultStr.replacingCharacters(in: range, with: "*") as NSString
+            satrtLoctaion = satrtLoctaion + 1
+        }
+        return reultStr as String
+    }
     
     ///获取某一段文字的CGSize
     func lgl_basekit_getStrSize(_ font: UIFont, _ maxWidth: CGFloat) -> CGSize {

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LGLBaseKit'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = 'LGLBaseKit is a convenient library'
 
 # This description is used to generate tags and improve search results.
@@ -30,8 +30,8 @@ TODO: A convenient library that encapsulates common UI controls and methods
 
   s.ios.deployment_target = '9.0'
   s.swift_version =  '5.0'
-  s.source_files = 'LGLBaseKit/Classes/**/*'
-  
+  # s.source_files = 'LGLBaseKit/Classes/**/*'
+
   # s.resource_bundles = {
   #   'LGLBaseKit' => ['LGLBaseKit/Assets/*.png']
   # }
@@ -39,4 +39,25 @@ TODO: A convenient library that encapsulates common UI controls and methods
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.subspec 'LGLExtension' do |ss|
+    ss.source_files = 'LGLBaseKit/Classes/LGLExtension'
+  end
+  
+  s.subspec 'LGLCrypt' do |ss|
+    ss.source_files = 'LGLBaseKit/Classes/LGLCrypt'
+  end
+  
+  s.subspec 'LGLDeviceInfo' do |ss|
+    ss.source_files = 'LGLBaseKit/Classes/LGLDeviceInfo'
+  end
+  
+  s.subspec 'LGLAlert' do |ss|
+    ss.source_files = 'LGLBaseKit/Classes/LGLAlert'
+  end
+  
+  s.subspec 'LGLPublicMethod' do |ss|
+    ss.source_files = 'LGLBaseKit/Classes/LGLPublicMethod'
+  end
+    
 end
