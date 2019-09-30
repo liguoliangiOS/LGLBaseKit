@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LGLBaseKit'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'LGLBaseKit is a convenient library'
 
 # This description is used to generate tags and improve search results.
@@ -58,6 +58,12 @@ TODO: A convenient library that encapsulates common UI controls and methods
   
   s.subspec 'LGLPublicMethod' do |ss|
     ss.source_files = 'LGLBaseKit/Classes/LGLPublicMethod'
+  end
+    
+  s.subspec 'LGLBaseUIKit' do |ss|
+    ss.dependency 'LGLBaseKit/LGLExtension'
+    ss.dependency 'LGLBaseKit/LGLDeviceInfo'
+    ss.dependency 'LGLBaseKit/LGLAlert'
   end
     
 end

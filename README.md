@@ -14,31 +14,54 @@
 LGLBaseKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
+#### 1.全部导入
+
 ```ruby
-    1.全部导入
+
+    pod 'LGLBaseKit'
     
-        pod 'LGLBaseKit'
-        
-    2. 部分导入
-    
-        //只导入LGLExtension创建和修改view的扩展方法
-        pod 'LGLBaseKit/LGLExtension'
-        
-        //只导入LGLPublicMethod常用的方法
-        pod 'LGLBaseKit/LGLExtension'
-        
-        //只导入LGLDeviceInfo设备的参数（包括app信息和手机系统信息）
-        pod 'LGLBaseKit/LGLDeviceInfo'
-        
-        //只导入LGLAlert简单封装系统的alert和action弹窗
-        pod 'LGLBaseKit/LGLAlert'
-        //只导入LGLCrypt加密（Md5加密，AESAES（128+CBC+PKCS7Padding），RSA(SHA1withRSA)加签，验签，加解密等）
-        pod 'LGLBaseKit/LGLCrypt'
+```
+
+#### 2.只导入UI相关代码
+
+```ruby
+
+    //只导入与UI相关文件(LGLExtension, LGLDeviceInfo, LGLAlert)
+    pod 'LGLBaseKit/LGLBaseUIKit'
      
 ```
+#### 3.单独文件导入
+
+```ruby
+
+    //只导入LGLExtension创建和修改view的扩展方法
+    pod 'LGLBaseKit/LGLExtension'
+    
+    //只导入LGLPublicMethod常用的方法
+    pod 'LGLBaseKit/LGLExtension'
+    
+    //只导入LGLDeviceInfo设备的参数（包括app信息和手机系统信息）
+    pod 'LGLBaseKit/LGLDeviceInfo'
+    
+    //只导入LGLAlert简单封装系统的alert和action弹窗
+    pod 'LGLBaseKit/LGLAlert'
+    //只导入LGLCrypt加密（Md5加密，AESAES（128+CBC+PKCS7Padding），RSA(SHA1withRSA)加签，验签，加解密等）
+    pod 'LGLBaseKit/LGLCrypt'
+     
+```
+
+## 0.0.7版本更新摘要
+
+####  新增可以只导入UI相关的方法
+
+```
+    pod 'LGLBaseKit/LGLBaseUIKit'
+
+```
+
 ## 0.0.6版本部分重要更新摘要
 
-#### 1. 支持部分文件导入
+#### 1. 支持每个部分文件单独导入
 #### 2. UIColor新增用于适配`iOS13`的暗黑和其他模式的颜色设置
  ```
     ///适配暗黑模式设置颜色 dark -- 暗黑模式下的颜色   light -- 其他模式下的颜色
