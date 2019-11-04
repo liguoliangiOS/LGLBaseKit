@@ -81,6 +81,49 @@ public enum XLRegularString: String {
     case limitInput2 = "^[0-9xX]+$"
 }
 
+public extension String {
+    ///限制只能输入数字格式
+    var lgl_limitNumber: Bool {
+        let str = "0123456789\n"
+        return lgl_basekit_judgeCharacterSetWithStr(str, self)
+    }
+    
+    ///限制只能输入邮箱格式
+    var lgl_limitEmial: Bool {
+        let str = "[a-zA-Z0-9@.]*"
+           return lgl_basekit_judgeCharacterSetWithStr(str, self)
+    }
+    
+    ///限制固定电话输入格式
+    var lgl_limitTelephone: Bool {
+        let str = "^(0[0-9]{2,3})?([2-9][0-9]{6,7})"
+        return lgl_basekit_judgeCharacterSetWithStr(str, self)
+    }
+    
+    ///限制输入数字、字母、中文字符格式
+    var lgl_limitOutSpecial:  Bool {
+        let str = "[a-zA-Z0-9\\u4E00-\\u9FA5]+"
+        return lgl_basekit_judgeCharacterSetWithStr(str, self)
+    }
+    
+    ///限制输入姓名格式为 中文数字英文和·• maxLimit最大位数
+   func lgl_limitChineseName(_ maxLimit: Int) -> Bool {
+       if self.count == 0 {
+           return true
+       }
+       let regextestStr: String = "[·•➋➌➍➎➏➐➑➒a-zA-Z0-9\\u4e00-\\u9fa5]{0,\(maxLimit)}"
+       return lgl_basekit_judgeCharacterSetWithStr(regextestStr, self)
+   }
+    ///限制身份证能输入的格式
+    var lgl_limitIdCarNumber:  Bool {
+        return lgl_basekit_judgeCharacterSetWithStr("0123456789xX", self)
+    }
+    /////限制能输入大小写字母和数字的格式
+    var lgl_limitLetterNumber: Bool {
+        let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        return lgl_basekit_judgeCharacterSetWithStr(str, self)
+    }
+}
 
 public extension String {
     
@@ -104,12 +147,12 @@ public extension String {
         return lgl_isMatch(regularString: .telephoneNumber)
     }
     
-    /// 验证码格式
+    /// 是否匹配验证码格式
     func lgl_isVericationCode() -> Bool {
         return lgl_isMatch(regularString: .verificationCode)
     }
     
-    /// 判断邮箱
+    /// 判断是否匹配邮箱格式
     func lgl_isEmail() -> Bool {
         return lgl_isMatch(regularString: .email)
     }
@@ -281,6 +324,17 @@ public extension String {
 
 
 fileprivate extension String {
+    ///判断文字的格式是否满足
+    func lgl_basekit_judgeCharacterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+          let characterSet = NSCharacterSet(charactersIn: characterStr).inverted
+          let filterArr:[String] = judgeText.components(separatedBy: characterSet)
+          let filterstr:String = filterArr.joined(separator: "")
+          let result:Bool = judgeText == filterstr
+          if result {
+              return true
+          }
+          return false
+    }
     
     ///文字用*号替换处理
     func lgl_basekit_replaceWithAsterisk(_ range: NSRange) -> String {
@@ -290,11 +344,13 @@ fileprivate extension String {
         var reultStr = NSString(string: self)
         var satrtLoctaion = range.location
         for _ in 0 ..< range.length {
-            reultStr = reultStr.replacingCharacters(in: range, with: "*") as NSString
+            let replaceRange = NSRange(location: satrtLoctaion, length: 1)
+            reultStr = reultStr.replacingCharacters(in: replaceRange, with: "*") as NSString
             satrtLoctaion = satrtLoctaion + 1
         }
         return reultStr as String
     }
+    
     
     ///获取某一段文字的CGSize
     func lgl_basekit_getStrSize(_ font: UIFont, _ maxWidth: CGFloat) -> CGSize {

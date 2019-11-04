@@ -49,6 +49,26 @@ it, simply add the following line to your Podfile:
     pod 'LGLBaseKit/LGLCrypt'
      
 ```
+## 0.0.8版本更新摘要
+
+1.修复LGLMethod里面用"*"替换文字没有效果
+2.LGLMethod新增新的方法。
+3.增加 LGLShowText 简单的提示错误文字弹窗
+```
+    class func showTextView(_ message: String?)
+    class func showTextView(_ message: String?, _ textFont: UIFont)
+```
+4.新增获取屏幕适配比例的方法
+```
+    /**获取宽度比例  以iphone6 为基准 
+    默认屏幕宽度比例大于1（X:1.104）的默认乘以1.02 */
+    class func wRatio(ratio: CGFloat = 1.02) -> CGFloat 
+ 
+ /** 获取高度比例 以iphone6 为基准 
+    默认屏幕高度比例大于1的 乘以1.02
+    （5.8的返回1.0，因为宽度比例是1所以不做高度增加处理）*/
+    class func hRatio(ratio: CGFloat = 1.02) -> CGFloat 
+```
 
 ## 0.0.7版本更新摘要
 
@@ -101,6 +121,8 @@ it, simply add the following line to your Podfile:
   | bottomSafeAreaHeight | CGFloat | 底部安全域的高度 |
   | widthRatio | CGFloat | 屏幕横向适配系数 以iphone6 为基准 |
   | heightRatio | CGFloat | 屏幕纵向适配系数 以iphone6 为基准 |
+  | wRatio |  CGFloat | 屏幕横向适配系数 参数默认ratio=1.02 |
+  | hRatio |  CGFloat | 屏幕纵向适配系数 参数默认ratio=1.02 |
   | phoneModelSize| CGSize | 获取当前设备分辨率 |
   | phoneEqualTo(_ size: CGSize) | Bool | 比较两个设备的分辨率(跟当前的设备比较) |
   | iPadType | Bool | 判断是否是IPad |

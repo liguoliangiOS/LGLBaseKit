@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		203A5E4F2A34495CB32815B04AD3F8AB /* LGLBaseKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 590DBC4E2E10206C64E1D644C8F51C0E /* LGLBaseKit-dummy.m */; };
+		213C222D236FC7F300A9582B /* LGLShowText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C222C236FC7F300A9582B /* LGLShowText.swift */; };
 		21740BFF23346D55005111D5 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740BFE23346D55005111D5 /* UIImage+Extension.swift */; };
 		21740C012334776C005111D5 /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C002334776C005111D5 /* NotificationCenter+Extension.swift */; };
 		21740C032334A4C3005111D5 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21740C022334A4C3005111D5 /* UINavigationController+Extension.swift */; };
@@ -60,6 +61,7 @@
 		1FA923471BA2A359F17E93FBC1A49D87 /* Pods-LGLBaseKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LGLBaseKit_Example-dummy.m"; sourceTree = "<group>"; };
 		206916962F8AD07B237BF154E8CE2BD4 /* LGLBaseKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LGLBaseKit.modulemap; sourceTree = "<group>"; };
 		20BB92307DB0615B515E83E59B8910BE /* LGLBaseKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LGLBaseKit.xcconfig; sourceTree = "<group>"; };
+		213C222C236FC7F300A9582B /* LGLShowText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGLShowText.swift; sourceTree = "<group>"; };
 		21740BFE23346D55005111D5 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		21740C002334776C005111D5 /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		21740C022334A4C3005111D5 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				21740C0C2334BFC6005111D5 /* LGLAlert.swift */,
+				213C222C236FC7F300A9582B /* LGLShowText.swift */,
 			);
 			name = LGLAlert;
 			path = LGLBaseKit/Classes/LGLAlert;
@@ -477,6 +480,7 @@
 				2175D560230CDBA500E8D17F /* NSRegularExpression+Extension.swift in Sources */,
 				21740C012334776C005111D5 /* NotificationCenter+Extension.swift in Sources */,
 				2175D558230CD8B000E8D17F /* String+Extension.swift in Sources */,
+				213C222D236FC7F300A9582B /* LGLShowText.swift in Sources */,
 				2175D555230CD8B000E8D17F /* UILabel+Extension.swift in Sources */,
 				2175D554230CD8B000E8D17F /* UIColor+Extension.swift in Sources */,
 				2175D553230CD8B000E8D17F /* UIImageView+Extension.swift in Sources */,

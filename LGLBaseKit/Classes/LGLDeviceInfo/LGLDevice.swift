@@ -69,6 +69,28 @@ public class LGLDevice {
         }
     }
     
+    ///屏幕横向适配系数 以iphone6 为基准 默认屏幕宽度比例大于1（X:1.104）的默认乘以1.02
+    public class func wRatio(ratio: CGFloat = 1.02) -> CGFloat {
+        let wdr = screenWidth / 375.0
+        if wdr > 1 {
+            return 1.02
+        }
+        return wdr
+    }
+    
+    /// 屏幕纵向适配系数 以iphone6 为基准 默认屏幕高度比例大于1的 乘以1.02
+    public class func hRatio(ratio: CGFloat = 1.02) -> CGFloat {
+        let htr = screenHeight / 375.0
+        if htr > 1 {
+            if iPhoneInch58 {
+                return 1.00
+            }
+            return 1.02
+        } else {
+            return htr
+        }
+    }
+    
     ///获取当前设备分辨率
     public static var phoneModelSize: CGSize {
         return lgl_basekit_currentPhoneModelSize()
@@ -183,7 +205,7 @@ public class LGLDevice {
     
     // MARK: ------- APP信息
     
-    ///App名称 获取失败则返回空字符串
+    ///App名称 iOS13 需要添加 info.plist里面添加 Bundle display name 获取失败则返回空字符串
     public static var appName: String  {
         return lgl_basekit_appName()
     }
