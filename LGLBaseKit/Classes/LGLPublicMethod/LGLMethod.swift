@@ -54,28 +54,28 @@ public class LGLMethod {
     }
     
      /// 金额格式化用组分隔 prefix 自定义前缀(如 $/￥)  separator 分隔符号（如,） groupingSize 分隔位数 maxFractionDigits 小数点后最多位数
-    public func moneyFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String,  _ separator: String, _ groupingSize: Int) -> String
+    public class func moneyFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String,  _ separator: String, _ groupingSize: Int) -> String
     {
        return lgl_basekit_moneyFormatter(money: money, maxFractionDigits: maxFractionDigits, prefix: prefix, separator: separator, groupingSize: groupingSize)
     }
     
     /// 金额格式化不用组分隔 prefix 自定义前缀(如 $/￥)  maxFractionDigits 小数点后最多位数
-    public func amountFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String) -> String {
+    public class func amountFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String) -> String {
         return lgl_basekit_amountFormatter(money: money, maxFractionDigits: maxFractionDigits, prefix: prefix)
     }
     
     ///跳转Dic -> JsonStr
-    public func dicToJsonStr(_ dic: [String: Any]) -> String? {
+    public class func dicToJsonStr(_ dic: [String: Any]) -> String? {
         return lgl_basekit_dicToJsonStr(dic)
     }
     
     ///图片旋转90度
-    public func rotationImage90(_ imageName: String) -> UIImage? {
+    public class func rotationImage90(_ imageName: String) -> UIImage? {
         return lgl_basekit_rotationImage90(imageName)
     }
     
     ///判断文字的格式是否满足条件  characterStr 条件 judgeText需要判断的字符串
-    public func characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+    public class func characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
         return lgl_basekit_characterSetWithStr(characterStr, judgeText)
     }
     
@@ -86,24 +86,24 @@ public class LGLMethod {
     *  size 压缩到的尺寸
     *  return 压缩后图片的二进制
     */
-    public func compressImage(_ image: UIImage, _ maxLength: Int, _ size:CGSize) -> Data? {
+    public class func compressImage(_ image: UIImage, _ maxLength: Int, _ size:CGSize) -> Data? {
         return lgl_basekit_compressImage(image: image, maxLength: maxLength, size: size)
     }
     
     /**
      * 尺寸的重置 重置的size
      */
-    public func reSetSizeImage(_ size:CGSize, _ image: UIImage) -> UIImage {
+    public class func reSetSizeImage(_ size:CGSize, _ image: UIImage) -> UIImage {
         return lgl_basekit_reSizeImage(reSize: size, image: image)
     }
     
     ///json字符串去除空格
-    public func jsonStrRemoveSpace(_ jsonStr: String) -> String {
+    public class func jsonStrRemoveSpace(_ jsonStr: String) -> String {
         return lgl_basekit_jsonStrRemoveSpace(jsonStr)
     }
     
     ///url字符串utf-8编码
-    public func urlEncodingToUtf8(_ str: String) ->  String {
+    public class func urlEncodingToUtf8(_ str: String) ->  String {
         return lgl_basekit_jstrEncodingToUtf8(str)
     }
 }
@@ -111,7 +111,7 @@ public class LGLMethod {
 
 private extension LGLMethod {
     
-    func lgl_basekit_jstrEncodingToUtf8(_ str: String) ->  String {
+    class func lgl_basekit_jstrEncodingToUtf8(_ str: String) ->  String {
         if str.count > 0 {
             let userved = "!NULL,'()*+,-./:;=?@_~%#[]"
             let allowed = NSMutableCharacterSet(charactersIn: userved)
@@ -121,7 +121,7 @@ private extension LGLMethod {
         return str
     }
     
-    func lgl_basekit_jsonStrRemoveSpace(_ jsonStr: String) -> String {
+    class func lgl_basekit_jsonStrRemoveSpace(_ jsonStr: String) -> String {
           var jsonStr = jsonStr
           jsonStr = jsonStr.replacingOccurrences(of: "\r", with: "")
           jsonStr = jsonStr.replacingOccurrences(of: "\n", with: "")
@@ -135,7 +135,7 @@ private extension LGLMethod {
      *  maxLength 压缩后最大字节大小
      *  return 压缩后图片的二进制
      */
-    func lgl_basekit_compressImage(image: UIImage, maxLength: Int, size:CGSize) -> Data? {
+    class func lgl_basekit_compressImage(image: UIImage, maxLength: Int, size:CGSize) -> Data? {
         let newImage =  lgl_basekit_reSizeImage(reSize: CGSize(width: size.width, height: size.height), image: image)
         var compress: CGFloat = 0.9
         var data = newImage.jpegData(compressionQuality: compress)
@@ -150,7 +150,7 @@ private extension LGLMethod {
 
 
     /// 尺寸的重置
-    func lgl_basekit_reSizeImage(reSize:CGSize, image: UIImage) -> UIImage {
+    class func lgl_basekit_reSizeImage(reSize:CGSize, image: UIImage) -> UIImage {
         UIGraphicsBeginImageContext(reSize);
         UIGraphicsBeginImageContextWithOptions(reSize,false,UIScreen.main.scale);
         image.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height));
@@ -161,7 +161,7 @@ private extension LGLMethod {
 
     
     ///判断文字的格式是否满足
-    func lgl_basekit_characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+    class func lgl_basekit_characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
           let characterSet = NSCharacterSet(charactersIn: characterStr).inverted
           let filterArr:[String] = judgeText.components(separatedBy: characterSet)
           let filterstr:String = filterArr.joined(separator: "")
@@ -173,7 +173,7 @@ private extension LGLMethod {
     }
     
     ///图片旋转90度
-    func lgl_basekit_rotationImage90(_ imageName: String) -> UIImage? {
+    class func lgl_basekit_rotationImage90(_ imageName: String) -> UIImage? {
         if let orgImage = UIImage(named: imageName) {
             return UIImage(cgImage:orgImage.cgImage!,
                                   scale:orgImage.scale,
@@ -183,7 +183,7 @@ private extension LGLMethod {
     }
     
     ///跳转Dic -> JsonStr
-    func lgl_basekit_dicToJsonStr(_ dic: [String: Any]) -> String? {
+    class func lgl_basekit_dicToJsonStr(_ dic: [String: Any]) -> String? {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dic, options: .prettyPrinted)
             let jsonS = String(data: jsonData, encoding: .utf8)
@@ -272,7 +272,7 @@ private extension LGLMethod {
     }
     
     /// 金额格式化用组分隔 prefix 自定义前缀(如 $/￥)  separator 分隔符号（如,） groupingSize 分隔位数 maxFractionDigits 小数点后最多位数
-    func lgl_basekit_moneyFormatter(money: Double, maxFractionDigits: Int, prefix:String,  separator: String, groupingSize: Int) -> String
+   class func lgl_basekit_moneyFormatter(money: Double, maxFractionDigits: Int, prefix:String,  separator: String, groupingSize: Int) -> String
     {
         let number = NSNumber(value: money)
         let formatter = NumberFormatter()
@@ -296,7 +296,7 @@ private extension LGLMethod {
     }
     
     /// 金额格式化不用组分隔 prefix 自定义前缀(如 $/￥)  maxFractionDigits 小数点后最多位数
-     func lgl_basekit_amountFormatter(money: Double, maxFractionDigits: Int, prefix:String) -> String
+    class func lgl_basekit_amountFormatter(money: Double, maxFractionDigits: Int, prefix:String) -> String
      {
          let number = NSNumber(value: money)
          let formatter = NumberFormatter()
