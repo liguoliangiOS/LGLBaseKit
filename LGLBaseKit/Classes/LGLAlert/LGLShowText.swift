@@ -11,9 +11,9 @@ fileprivate let Screen_W:CGFloat = UIScreen.main.bounds.width
 fileprivate let Screen_H:CGFloat = UIScreen.main.bounds.height
 
 
-class LGLShowText: UIView {
+public class LGLShowText: UIView {
     
-    class func showTextView(_ message: String?)  {
+   public class func showTextView(_ message: String?)  {
         if message != nil {
             DispatchQueue.main.async {
                 let erroView = LGLShowText(frame: UIScreen.main.bounds, error: message!, textFont: UIFont.systemFont(ofSize: 15))
@@ -23,7 +23,7 @@ class LGLShowText: UIView {
         }
     }
     
-    class func showTextView(_ message: String?, _ textFont: UIFont)  {
+   public class func showTextView(_ message: String?, _ textFont: UIFont)  {
         if message != nil {
             DispatchQueue.main.async {
                 let erroView = LGLShowText(frame: UIScreen.main.bounds, error: message!, textFont: textFont)
