@@ -54,28 +54,28 @@ public class LGLMethod {
     }
     
      /// 金额格式化用组分隔 prefix 自定义前缀(如 $/￥)  separator 分隔符号（如,） groupingSize 分隔位数 maxFractionDigits 小数点后最多位数
-    func moneyFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String,  _ separator: String, _ groupingSize: Int) -> String
+    public func moneyFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String,  _ separator: String, _ groupingSize: Int) -> String
     {
        return lgl_basekit_moneyFormatter(money: money, maxFractionDigits: maxFractionDigits, prefix: prefix, separator: separator, groupingSize: groupingSize)
     }
     
     /// 金额格式化不用组分隔 prefix 自定义前缀(如 $/￥)  maxFractionDigits 小数点后最多位数
-    func amountFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String) -> String {
+    public func amountFormatter(_ money: Double, _ maxFractionDigits: Int, _ prefix:String) -> String {
         return lgl_basekit_amountFormatter(money: money, maxFractionDigits: maxFractionDigits, prefix: prefix)
     }
     
     ///跳转Dic -> JsonStr
-    func dicToJsonStr(_ dic: [String: Any]) -> String? {
+    public func dicToJsonStr(_ dic: [String: Any]) -> String? {
         return lgl_basekit_dicToJsonStr(dic)
     }
     
     ///图片旋转90度
-    func rotationImage90(_ imageName: String) -> UIImage? {
+    public func rotationImage90(_ imageName: String) -> UIImage? {
         return lgl_basekit_rotationImage90(imageName)
     }
     
     ///判断文字的格式是否满足条件  characterStr 条件 judgeText需要判断的字符串
-    func characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+    public func characterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
         return lgl_basekit_characterSetWithStr(characterStr, judgeText)
     }
     
@@ -86,21 +86,48 @@ public class LGLMethod {
     *  size 压缩到的尺寸
     *  return 压缩后图片的二进制
     */
-    func compressImage(_ image: UIImage, _ maxLength: Int, _ size:CGSize) -> Data? {
+    public func compressImage(_ image: UIImage, _ maxLength: Int, _ size:CGSize) -> Data? {
         return lgl_basekit_compressImage(image: image, maxLength: maxLength, size: size)
     }
     
     /**
      * 尺寸的重置 重置的size
      */
-    func reSetSizeImage(_ size:CGSize, _ image: UIImage) -> UIImage {
+    public func reSetSizeImage(_ size:CGSize, _ image: UIImage) -> UIImage {
         return lgl_basekit_reSizeImage(reSize: size, image: image)
+    }
+    
+    ///json字符串去除空格
+    public func jsonStrRemoveSpace(_ jsonStr: String) -> String {
+        return lgl_basekit_jsonStrRemoveSpace(jsonStr)
+    }
+    
+    ///url字符串utf-8编码
+    public func urlEncodingToUtf8(_ str: String) ->  String {
+        return lgl_basekit_jstrEncodingToUtf8(str)
     }
 }
 
 
 private extension LGLMethod {
     
+    func lgl_basekit_jstrEncodingToUtf8(_ str: String) ->  String {
+        if str.count > 0 {
+            let userved = "!NULL,'()*+,-./:;=?@_~%#[]"
+            let allowed = NSMutableCharacterSet(charactersIn: userved)
+            let urlStr = str.addingPercentEncoding(withAllowedCharacters:allowed as CharacterSet)
+            return urlStr!
+        }
+        return str
+    }
+    
+    func lgl_basekit_jsonStrRemoveSpace(_ jsonStr: String) -> String {
+          var jsonStr = jsonStr
+          jsonStr = jsonStr.replacingOccurrences(of: "\r", with: "")
+          jsonStr = jsonStr.replacingOccurrences(of: "\n", with: "")
+          jsonStr = jsonStr.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+          return jsonStr
+      }
 
     /**
      *  压缩上传图片到指定字节
