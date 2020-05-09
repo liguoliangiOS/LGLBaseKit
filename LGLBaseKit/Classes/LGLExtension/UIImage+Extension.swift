@@ -34,4 +34,14 @@ public extension UIImage {
     func lgl_imageOriginal() -> UIImage {
         return self.withRenderingMode(.alwaysOriginal)
     }
+
+    /**图片拉伸 指定
+       edgeInset 指定不被拉伸的区域
+        imageName 图片名称
+        resizeMode UIImageResizingModeTile,//进行区域复制模式拉伸 【-】 -> 【-】【-】【-】
+        resizeMode UIImageResizingModeStretch,//进行渐变复制模式拉伸 连续的 【-】 -> 【-----】
+     */
+    func lgl_stretchImage(_ edgeInset:UIEdgeInsets, _ resizeMode: UIImage.ResizingMode) -> UIImage {
+        return self.resizableImage(withCapInsets:edgeInset, resizingMode: resizeMode)
+    }
 }

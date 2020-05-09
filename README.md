@@ -49,6 +49,12 @@ it, simply add the following line to your Podfile:
     pod 'LGLBaseKit/LGLCrypt'
      
 ```
+
+## 0.1.2版本更新
+
+#### 补充判断设备的Model（iPhone 11 Pro， iPhone XS Max .......）
+#### 新增一些实用的方法，请查看具体代码
+
 ## 0.0.8版本更新摘要
 
 1.修复LGLMethod里面用"*"替换文字没有效果
@@ -165,256 +171,221 @@ it, simply add the following line to your Podfile:
 
 ####  三、UI控件（绘制阴影，渐变色，View转图片，根据View获取控制器）、颜色、字符串（富文本， 常见的正则判断等）的 Extension 
 
-  `1. UI控件，使用的时候都使用 类名或者实例 来创建或者设置`
+  ####  `1. UI控件，使用的时候都使用 类名或者实例 来创建或者设置,更多方法请查阅具体view的扩展方法`
   
-```
-    ------------------- UIView+Extension -------------------
-    
-    //MARK: ----- 创建
 
+`UIView+Extension`
+    
+```
     ///初始化View 设置背景颜色
-    class func lgl_view(_ backgroundColor: UIColor) -> Self
-    
+    let view =  UIView.lgl_view(.red)
+```
+
+```
     ///初始化View 设置背景颜色、圆角
-    class func lgl_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat) -> Self
-    
-    //MARK: ----- 设置
-    
-    ///设置View 背景颜色、圆角
-    func lgl_view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat)
-    
-    //MARK: ----- 给view添加 渐变 阴影  切角 阴影和边框 获取当前View的控制器 View转image
-    
+    let view2 = UIView()
+    view2.lgl_view(.red, 20)
+```
+
+```
     /// 水平渐变
-    func lgl_horizontalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat)
-    
+    let view3 = UIView()
+    view3.lgl_horizontalGradientLayer(.red, .red, 20)
+```
+
+```
     /// 垂直渐变
-    func lgl_verticalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat)
-    
-    /// 设置view的切角
-    func lgl_roundingCorner(_ corners: UIRectCorner, _ radii: CGFloat)
-    
+    view3.lgl_verticalGradientLayer(.red, .red, 20)
+```
+
+```
+    /// 设置view的切角 
+    view3.lgl_roundingCorner([.topLeft, .topRight], _ radii: 5)
+```
+
+```
     ///给View添加阴影
-    func lgl_shadow( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat)
-    
+    view3.lgl_shadow(.red, CGSize(width:0, height:3), 0.2, 10, 8)
+```
+
+```
     ///给View添加阴影和边框
-    func lgl_shadowBorder( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat, _ borderColor: UIColor)
-    
+    view3.lgl_shadowBorder(.red, CGSize(width:0, height:3), 0.2, 10, 8, .gray)
+```
+
+```
     ///获取当前View的控制器
-    func lgl_viewGetcurrentVC() -> UIViewController?
-    
+    let currentVC =  view3.lgl_viewGetcurrentVC()
+```
+
+```
     ///view转图片
-    func lgl_viewToImage() -> UIImage
+    let image =  view3.lgl_viewToImage()
 ```
   
-```
-    ------------------- UIImageView+Extension -------------------
-    
-     //MARK: ----- 创建
-     
+`UIImageView+Extension`
+
+```    
     ///设置图片初始化
-    class func lgl_imagView(_ imageName:String) -> Self
-    ///设置图片和圆角初始化
-    
-    class func lgl_imagView(_ imageName:String, _ cornerRadius:CGFloat) -> Self
-    ///设置图片和圆角、背景色初始化
-    
-    class func lgl_imagView(_ imageName:String, _ backgroundColor: UIColor, _ cornerRadius:CGFloat) -> Self
-    
-    //MARK: ----- 设置
-    
+    let imageV =  UIImageView.lgl_imagView("图片名字.png")
+```
+
+```
     ///设置图片
-    func lgl_imagView(_ imageName:String)
-    
-    ///设置图片和圆角
-    func lgl_imagView(_ imageName:String, _ cornerRadius:CGFloat)
-    
-    ///设置图片和圆角、背景色
-    func lgl_imagView(_ imageName:String, _ backgroundColor: UIColor,  _ cornerRadius:CGFloat)
+    let imageV = UIImageView()
+    imageV.lgl_imagView("图片名字.png")
 ```
+
+
+`UILabel+Extension`
+
 ```
-   ------------------- UILabel+Extension -------------------
-   
-    //MARK: ----- 创建
-   
-   ///初始化label 字体、字体颜色 背景颜色、 字体大小、对齐方式、行数
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int) -> Self
-   
-   ///初始化label 字体、字体颜色 字体大小、对齐方式
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self
-   
-   ///初始化label 字体、字体颜色 字体大小、行数
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self
-   
-   ///初始化label 字体、字体颜色 字体大小
-   class func lgl_label(_ text: String, _ textColor: UIColor,  _ font: UIFont) -> Self
-   
-   ///初始化label 字体、字体颜色、背景颜色、 字体大小、对齐方式
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment) -> Self
-   
-   ///初始化label 字体、字体颜色、背景颜色、 字体大小行数
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int) -> Self
-   
-   ///初始化label 字体、字体颜色、背景颜色、 字体大小
-   class func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont) -> Self
-   
-   //MARK: ----- 设置
-   
-   ///设置label 字体、字体颜色、背景颜色、 字体大小、对齐方式、行数
-   func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment, _ numberOfLines: Int)
-   
-   ///设置label 字体、字体颜色、背景颜色、 字体大小、对齐方式
-   func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment)
-   
-   ///设置label 字体、字体颜色、背景颜色、 字体大小、行数
-   func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ numberOfLines: Int)
-   
-   ///设置label 字体、字体颜色、背景颜色、 字体大小
-   func lgl_label(_ text: String, _ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont)
-   
-   ///设置label 字体、字体颜色、背景颜色、 字体大小、对齐方式、行数
-   func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ textAlignment: NSTextAlignment)
-   
-   ///设置label 字体、字体颜色、 字体大小、行数
-   func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont, _ numberOfLines: Int)
-   
-   ///设置label 字体、字体颜色、 字体大小
-   func lgl_label(_ text: String, _ textColor: UIColor, _ font: UIFont)
-   
+   ///初始化label 字体、字体颜色  字体大小、对齐方式、行数
+   let label = UILabel.lgl_label("文字", .red,  UIFont.systemFont(ofSize: 14), .left, 0)
+```
+
+```
+    ///设置label 字体、字体颜色、背景颜色、 字体大小、对齐方式、行数
+   let label = UILabel()
+   label.lgl_label("文字", .red, .white, UIFont.systemFont(ofSize: 14),.left, 0)
+```  
+
+```
    ///设置label 切圆角
-   func lgl_labelRadius(_ cornerRadius: CGFloat)
-   
+   let label = UILabel()
+   label.lgl_labelRadius(12)
+```
+```
    ///设置label 边框和边框颜色
-   func lgl_labelBorder(_ borderColor: UIColor, _ borderWidth: CGFloat)
-   
+   let label = UILabel()
+   label.lgl_labelBorder(.red, 1)
+```
+
+```
    ///设置label 边框、边框颜色、切圆角
-   func lgl_labelBorder(_ borderColor: UIColor, _ borderWidth: CGFloat, _ cornerRadius: CGFloat)
+   let label = UILabel()
+   label.lgl_labelBorder(.red, 1, 10)
 
 ```
-```
-    ------------------- UIButton+Extension -------------------
 
-    //MARK: ----- 创建
- 
-     ////初始化button  设置 标题文字、文字颜色、文字大小
-     class func lgl_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     ////初始化button  设置 标题文字、文字颜色、文字大小
-     class func lgl_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     ////初始化button  设置 标题文字、文字颜色、文字大小、图片
-     class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     ////初始化button  设置 标题文字、文字颜色、文字大小、背景图片
-     class func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     ////初始化button 没有点击  设置 标题文字、文字颜色、文字大小、图片
-     class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont) -> Self
-     
-     ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中图片
-     class func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String,  _ selectedImageName: String,  _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     ////初始化button  设置 标题文字、文字颜色、文字大小、选中和未选中背景图片
-     class func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ selectedBackgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) -> Self
-     
-     //MARK: ---- 设置
-     
+`UIButton+Extension`
+
+```
+    ////初始化button  设置 标题文字、文字颜色、文字大小
+    let btn = UIButton.lgl_button("标题", .red, UIFont.systemFont(ofSize: 14), self, #selector(selectBtn)) 
+```
+
+```
      ////设置button 标题文字、文字颜色、文字大小
-     func lgl_button(_ title:String, _ titleColor:UIColor, _ backgroundColor: UIColor, _ font:UIFont, _ target:Any, _ action:Selector)
-     
-     ////设置button 标题文字、文字颜色、文字大小
-     func lgl_button(_ title:String, _ titleColor:UIColor, _ font:UIFont, _ target:Any, _ action:Selector)
-     
-     ////设置button 标题文字、文字颜色、文字大小、图片
-     func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont, _ target:Any, _ action:Selector)
-     
-     ////设置button 标题文字、文字颜色、文字大小、背景图片
-     func lgl_button(_ title:String, _ titleColor: UIColor, _ backgroundImage:UIImage, _ font:UIFont, _ target:Any, _ action:Selector) 
-     
-     ////设置button 没有点击 标题文字、文字颜色、文字大小、图片
-     func lgl_button(_ title:String, _ titleColor:UIColor, _ imageName: String, _ font:UIFont)
-     
+     let btn = UIButton(type: .custom)
+     btn.lgl_button("标题", .red, UIFont.systemFont(ofSize: 14), self, #selector(selectBtn)) 
+```
+```
      ///设置图片
-     func lgl_buttonImage(_ normalImageName: String, _ selectImageName: String)
-     
+     let btn = UIButton(type: .custom)
+     btn.lgl_buttonImage("normal_image_name.png", "select_image_name.png")
+```
+```
      ///设置背景图片
-     func lgl_buttonBackgroundImage(_ normalImageName: String, _ selectImageName: String)
-     
+     let btn = UIButton(type: .custom)
+     btn.lgl_buttonBackgroundImage("normal_back_image_name.png", "select_back_image_name.png")
+```
+```
      ///设置圆角
-     func lgl_buttonRadius(_ cornerRadius: CGFloat)
-     
-     ///设置边框颜色、边框宽度
-     func lgl_buttonBorder(_ borderColor: UIColor, _ borderWidth: CGFloat)
-     
-     ///设置边框颜色、边框宽度、圆角
-     func lgl_buttonBorder(_ borderColor: UIColor, _ borderWidth: CGFloat, _ cornerRadius: CGFloat)
+     let btn = UIButton(type: .custom)
+     btn.lgl_buttonRadius(10)
 ```
-```
-    ------------------- UITextField+Extension -------------------
-    
-    //MARK: ----- 创建
-    
-    ///初始化TextField  字体大小、字体颜色、提示文字、边框样式 、背景色
-    class func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self
-    
-    ///初始化TextField 字体大小、字体颜色、提示文字、边框样式
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle) -> Self
-    
-    ///初始化TextField 字体大小、字体颜色、提示文字
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) -> Self 
-    
-    ///初始化TextField 字体大小、字体颜色
-    class func lgl_textField(_ textColor: UIColor, _ font: UIFont) -> Self
-    
-    //MARK: ---- 设置
-    
-    ///设置TextField 字体大小、字体颜色、提示文字、边框样式、背景色
-    func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle)
-    
-    ///设置TextField 字体大小、字体颜色、提示文字、背景色
-    func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont, _ placeholder: String)
-    
-    ///设置TextField 字体大小、字体颜色、背景色
-    func lgl_textField(_ textColor: UIColor, _ backgroundColor: UIColor, _ font: UIFont)
-    
-    ///设置TextField 字体大小、字体颜色、提示文字、边框样式
-    func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String, _ borderStyle: UITextField.BorderStyle)
-    
-    ///设置TextField 字体大小、字体颜色、提示文字
-    func lgl_textField(_ textColor: UIColor, _ font: UIFont, _ placeholder: String) 
-    
-    ///设置TextField 字体大小、字体颜色
-    func lgl_textField(_ textColor: UIColor, _ font: UIFont)
-    
-    ///设置Placeholder的字体大小和颜色
-    func lgl_textFieldPlaceholder(_ color: UIColor, _ font: UIFont)
-    
-    ///设置LeftView
-    func lgl_textFieldSetLeftView(_ leftView: UIView?)
-    
-    ///设置RightView
-    func lgl_textFieldSetRightView(_ rightView: UIView?)
-    
-    ///修改clear按钮的图片
-    func lgl_textFieldChangeClearButton(_ imageName: String)
-    
-    ///切圆角
-    func lgl_textFieldCornerRadius(_ cornerRadius: CGFloat)
 
 ```
+     ///设置边框颜色、边框宽度
+     let btn = UIButton(type: .custom)
+     btn.lgl_buttonBorder(.red, 1)
+```
+
+```
+     ///设置边框颜色、边框宽度、圆角
+     let btn = UIButton(type: .custom)
+     btn.lgl_buttonBorder(.red, 1, 10)
+```
+
+
+`UITextField+Extension`
+
+```
+    ///初始化TextField 字体颜色、 字体大小、提示文字、边框样式
+    let field = UITextField.lgl_textField(.red, UIFont.systemFont(ofSize: 14), "提示文字", .none)
+```
+
+```
+    ///设置TextField 字体大小、字体颜色、提示文字、边框样式
+    let field = UITextField()
+    field.lgl_textField(.red, UIFont.systemFont(ofSize: 14), "提示文字", _ borderStyle: .none)
+```
+
+```
+    ///设置Placeholder的字体大小和颜色
+    let field = UITextField()
+    field.lgl_textFieldPlaceholder(.red, UIFont.systemFont(ofSize: 14))
+```
+
+```
+    ///设置LeftView
+    let field = UITextField()
+    let leftView = UIView()
+    field.lgl_textFieldSetLeftView(leftView)
+```
+
+```
+    ///设置RightView
+    let field = UITextField()
+    let rightView = UIView()
+    field.lgl_textFieldSetRightView(rightView)
+```
+
+```
+    ///修改clear按钮的图片
+    let field = UITextField()
+    field.lgl_textFieldChangeClearButton("clear_btn_image.png")
+```
+
+```
+    ///切圆角
+    let field = UITextField()
+    field.lgl_textFieldCornerRadius(10)
+```
+
+`UIImage+Extension`
+
+```
+    /**图片拉伸 指定
+        edgeInset 指定不被拉伸的区域
+        imageName 图片名称
+        resizeMode UIImageResizingModeTile,//进行区域复制模式拉伸 【-】 -> 【-】【-】【-】
+        resizeMode UIImageResizingModeStretch,//进行渐变复制模式拉伸 连续的 【-】 -> 【-----】
+    */
+    let image = UIImage(named:"image.png")
+    ///设置要保留的部分
+    let uiedgeSet = UIEdgeInsets(top: 11, left:0, bottom: 11, right: 0)
+    let resizeMode =  .stretch
+    
+    let strechImage = image.lgl_stretchImage(uiedgeSet, resizeMode) 
+}
+
+```
+
   ` 2. 颜色`
+  
 ```
     ///设置颜色
-    convenience init(_ hex: UInt) {
-    class func lgl_color(_ hex: String) -> UIColor
-    
-    ///使用举例
-    UIColor(0xefefef)
-    UIColor.lgl_color("#efefef") -> UIColor
-    
+    let color = UIColor(0xefefef)
+    let color = UIColor.lgl_color("#efefef") -> UIColor
+```
+
+```
     ///适配暗黑模式设置颜色 dark -- 暗黑模式下的颜色   light -- 其他模式下的颜色
-    UIColor.lgl_traitColor(darkColor, lightColor) -> UIColor
-    UIColor.lgl_traitColor(lightColor) -> UIColor
+    ///darkColor   lightColor
+    let color = UIColor.lgl_traitColor(.white, black) 
+    let color = UIColor.lgl_traitColor(.white)
 ```
      
   `3. 字符串`
@@ -446,155 +417,204 @@ it, simply add the following line to your Podfile:
   | lgl_hasEmoji()| Bool | 是否包含表情符|
   | lgl_hasChinese()| Bool | 是否包含中文字符|
 
+
+`NSAttributedString`
+
 ```
-// MARK: ---------------  NSAttributedString
-  
   ///获取某一段文字的CGSize
-  func lgl_getStrSize(_ font: UIFont, _ maxWidth: CGFloat) -> CGSize
-  
-  ///修改指定文字的字体大小 和 颜色
-  func lgl_modifyRangeText(_ changeText: String, _ changeColor: UIColor, _ changeFont: UIFont) -> NSAttributedString
-  
-  ///设置行间距
-  func lgl_modifyLineHeight(_ lineHeight: CGFloat, _ alignment: NSTextAlignment) -> NSAttributedString
-  
-  ///设置指定范围内文字的颜色
-  func lgl_modifyRangeTextColor(_ range: NSRange, _ changeColor: UIColor) -> NSAttributedString
-  
-  ///设置指定范围内文字的下划线 颜色
-  func lgl_modifyRangeUnderLine( _ range: NSRange, _ rangeColor: UIColor, _ lineColor:UIColor)  -> NSAttributedString
-  
-  ///设置行间距 和 首行缩进缩进两个字符
-  func lgl_setHeadIndent(_ lineHeight: CGFloat, _ font: UIFont) -> NSAttributedString
-  ///设置一条文字中间的线
-  func lgl_setThroughLine(_ range: NSRange, _ lineColor: UIColor) -> NSAttributedString
-  
-  ///获取设置行高以后的字符串的Size(高)
-  func lgl_getLineHeightSize(_ lineHeight: CGFloat, _ font: UIFont, _ maxW: CGFloat) -> CGSize
+  let str = "这是要获取字符串size的文字"
+  let font =  UIFont.systemFont(ofSize: 14)
+  let maxWidth = 100
+  let size = str.lgl_getStrSize(font, maxWidth) 
 ```
 
-` 4. NSRegularExpression+Extension`
+```
+  
+  ///修改指定文字的字体大小 和 颜色
+  let str = "这是要获取字符串size的文字"
+  let changeText = "获取字符"
+  let attributestr = str.lgl_modifyRangeText(changeText, .red, font)
+  
+```
+```
+  ///设置行间距
+  let lineHeight = 5
+  let alignment = .center
+  let attributestr = str.lgl_modifyLineHeight(lineHeight, alignment) 
+```
+
+```
+  ///设置指定范围内文字的颜色
+  let range = NSRange(location:1, length: 3)
+  let attributestr = str.lgl_modifyRangeTextColor(range, .red) 
+```
+
+```
+  
+  ///设置指定范围内文字的下划线 颜色
+  let range = NSRange(location:1, length: 3)
+  let rangeColor = .red
+  let lineColor = .red
+  let attributestr = str.lgl_modifyRangeUnderLine( range, rangeColor, lineColor)
+```
+
+```
+  ///设置行间距 和 首行缩进缩进两个字符
+   let lineHeight = 5
+   let font =  UIFont.systemFont(ofSize: 14)
+   let attributestr = str.lgl_setHeadIndent(lineHeight, font) 
+```
+
+```
+  ///设置一条文字中间的线
+  let range = NSRange(location:1, length: 3)
+  let lineColor = .red
+  let attributestr = str.lgl_setThroughLine(range, lineColor) 
+```
+
+```
+  ///获取设置行高以后的字符串的Size(高)
+  let lineHeight = 5
+  let font =  UIFont.systemFont(ofSize: 14)
+  let maxW = 100
+  let size = str.lgl_getLineHeightSize(lineHeight, font, maxW)
+```
+
+`4. NSRegularExpression+Extension`
+
+
+ `匹配`
 
 ```
     ///匹配 
-    class func lgl_isMatch(string: String, pattern: String) -> Bool
-    class func lgl_isMatch(string: String, pattern: String, ignoreCase: Bool) -> Bool
-    
-    ///替换
-    class func lgl_replacement(string: String, replace: String, pattern: String) -> String
+    let res:Bool = NSRegularExpression.lgl_isMatch(string: "判断的字符串", pattern: "正则字符串")   
+```
+`替换`
+
+```
+    let str = NSRegularExpression.lgl_replacement(string: "判断的字符串", replace: "要替换的字符串", pattern: "正则字符串") 
 ```
 
 
 ####  四、一些常见的方法包含在类 `LGLMethod`（会持续补充方法）
 
+`这里只列举几个，更多的请查看具体的LGLMethod里面`
+
 ```
-    //MARK: ----  方法 ---- 
-    
     ///返回原始图片
-    public class func originalImage(_ imageName: String) -> UIImage?
+    let oriImage = LGLMethod.originalImage("image_name.png") 
+```
 
-    ///等比缩放图片获取高度
-    public class func imageHeight(_ imageW: CGFloat, _ imageH: CGFloat, _ realW: CGFloat) -> CGFloat
+```
+    ///等比缩放图片获取高度 imageW imageH realW具体使用时候的宽度
+    let H = LGLMethod.imageHeight(750, 300, 600) 
+```
 
+```
     ///根据root控制器，返回当前控制器
-    public class func currentVC() -> UIViewController?
-    
-    //MARK: ----  使用 ---- 
- 
-    ///返回原始图片
-    LGLMethod.originalImage(_ imageName: String) -> UIImage?
+    let currentVC = LGLMethod.currentVC()
+```
 
-    ///等比缩放图片获取高度
-    LGLMethod.imageHeight(_ imageW: CGFloat, _ imageH: CGFloat, _ realW: CGFloat) -> CGFloat 
-
-    ///根据root控制器，返回当前控制器
-    LGLMethod.currentVC() -> UIViewController? 
-    
+```
     ///根据颜色生成图片（UIImage）
-    LGLMethod.imageWithColor(_ color: UIColor, _ size: CGSize) -> UIImage
-    
+    let image = LGLMethod.imageWithColor(.red, CGSize(width:100, height:100))
+```
+
+```
     ///打开链接  OpenUrl
     @discardableResult
-    LGLMethod.openUrl(_ url: URL) -> Bool
-    
-    ///拨打电话
-    LGLMethod.lgl_callPhone(_ number: String)
-    
-    /// 跳转appStore 评论
-    LGLMethod.lgl_appStoreComment(_ appId: String)
+    LGLMethod.openUrl(url) 
 ```
 
-####  四、LGLAlert系统的提示弹框
+```
+    ///拨打电话
+    LGLMethod.lgl_callPhone(number)
+```
 
-    ```
-    ///aler提示框
-    LGLAlert.lgl_alert(_ title: String, _ message: String, _ showTime: TimeInterval = 1.0)
-    
-    ///单个按钮的alert提示框
-     LGLAlert.lgl_alert(_ title: String, _ message: String, _ actionTitle:String, _ actionStyle:UIAlertAction.Style = .default, handler:((UIAlertAction) -> Void)? = nil)
-    
-    ///两个按钮的alert提示框
-     LGLAlert.lgl_alert(_ title: String, _ message: String, _ cancelTitle:String, cancelHandler:((UIAlertAction) -> Void)? = nil, _ confirmTitle:String, confirmHandler:((UIAlertAction) -> Void)? = nil)
-    
-    ///ationSheet 提示框
-     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ showTime: TimeInterval = 1.0)
-    
-    ///单个按钮的ationSheet提示框
-     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ actionTitle:String, _ actionStyle:UIAlertAction.Style = .default, handler:((UIAlertAction) -> Void)? = nil)
-    
-    ///两个按钮的ationSheet提示框
-     LGLAlert.lgl_ationSheet(_ title: String, _ message: String, _ cancelTitle:String, cancelHandler:((UIAlertAction) -> Void)? = nil, _ confirmTitle:String, confirmHandler:((UIAlertAction) -> Void)? = nil)
+```
+    /// 跳转appStore 评论
+    LGLMethod.lgl_appStoreComment(appId)
+```
+
+####  四、`LGLAlert`系统的提示弹框
+
+```
+    ///aler提示框 标题 内容 展示时间（默认1s）
+    LGLAlert.lgl_alert("提示", "提示内容", 2)
+```
+
+```
+    ///ationSheet 提示框 标题 内容 展示时间（默认1s）
+    LGLAlert.lgl_ationSheet("提示", "提示内容", 2)
+```
+
+```
+     ///一个按钮的filed弹窗 标题 内容 按钮标题 提示文字
+     LGLAlert.lgl_field("提示", "提示内容", "确定", "提示文字", handler:{(filedValue) in
+        print(filedValue)
+     })
+```
+
+#### 五、`LGLCrypt`加密工具
+
+
+`包含 Md5加密，AESAES（128+CBC+PKCS7Padding），RSA加解密、加签和验签`
+      
+`Md5`
+
+```
+    let md5Str = LGLCrypt.lgl_md5Encrypt("要加密的字符串")
+```
+
+`AES加解密`
+
+```
+     ///AES加密（[UInt8]c形式的key和iv）
+     let key:[UInt8] //[UInt8]类型的key
+     let iv: [UInt8] //[UInt8]类型的iv
+     let aesEcrypt = LGLCrypt.lgl_aesEncrypt("要加密的字符串", key, iv)
      
-     ///一个按钮的filed弹窗
-     LGLAlert.lgl_field(_ title: String, _ message: String, _ buttonTitle: String, _ fieldHolder:String = "", handler:@escaping ((_ filedValue: String?) -> Void))
+     ///AES解密([UInt8]c形式的key和iv)
+     let aesDecrypt = LGLCrypt.lgl_aesDecrypt("要解密的字符串", key, iv)
+```
+
+```
+     ///AES加密(字符串形式的key和iv)
+     let key = "" 
+     let iv= "" 
+     let aesEcrypt = LGLCrypt.lgl_aesEncryptStr("要加密的字符串",key, iv)
      
-     ///两个按钮的filed弹窗
-     LGLAlert.lgl_field(_ title: String, _ message: String,_ cancelTitle:String,_ fieldHolder:String = "", cancelHandler:((UIAlertAction) -> Void)? = nil,  _ buttonTitle: String,  confirmHandler:@escaping ((_ filedValue: String?) -> Void))
-    
-    ```
+     ///AES解密(字符串形式的key和iv)
+     let aesDecrypt = LGLCrypt.lgl_aesDecryptStr("要解密的字符串", key, iv)
+```
 
+`RSA加解密、加签和验签`
 
-#### 五、LGLCrypt加密工具
+```
+     ///  RSA签名
+     let  privateKey = ""
+     let  privateKeychainTag = ""
+     let signStr = LGLCrypt.lgl_rsaSignWithSHA1("要签名字符串", privateKey, privateKeychainTag)
+     
+     /// RSA验签
+     let  publicKey = ""
+     //Bool
+     let res = LGLCrypt.lgl_rsaSignVerifyWithSHA1("原始字符串", "签名的字符串", publicKey, privateKeychainTag) 
+```
 
-        包含 Md5加密，AESAES（128+CBC+PKCS7Padding），RSA加解密、加签和验签
-        
-    ```
-         --------- Md5 --------------
-         
-         LGLCrypt.lgl_md5Encrypt(_ text: String ) -> String
-         
-         --------- AES --------------
-         
-         ///AES加密（[UInt8]c形式的key和iv）
-         LGLCrypt.lgl_aesEncrypt(_ text: String, _ key:[UInt8], _ iv:[UInt8]) -> String?
-         
-         ///AES解密([UInt8]c形式的key和iv)
-         LGLCrypt.lgl_aesDecrypt(_ aesText: String, _ key:[UInt8], _ iv:[UInt8]) -> String?
-         
-         ///AES加密(字符串形式的key和iv)
-         LGLCrypt.lgl_aesEncryptStr(_ text: String, _ key:String, _ iv:String) -> String?
-         
-         ///AES解密(字符串形式的key和iv)
-         LGLCrypt.lgl_aesDecryptStr(_ aesText: String, _ key:String, _ iv:String) -> String?
-         
-         --------- RSA --------------
-          
-        ///  RSA签名
-         LGLCrypt.lgl_rsaSignWithSHA1(_ text: String, _ privateKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> String?
-         
-         
-         /// RSA验签
-         LGLCrypt.lgl_rsaSignVerifyWithSHA1(_ originalStr: String, _ siginStr: String, _ publicKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> Bool
-         
-         /// RSA公钥加密
-         LGLCrypt.lgl_rsaEncrypt(_ text: String, _ publicKey: String, _ publicKeychainTag:String = LGL_RSA_PUBLIC_KEY) -> String?
-         
-         /// RSA私钥解密
-         LGLCrypt.lgl_rsaDecrypt(_ encryptData: String, _ privateKey: String, _ privateKeychainTag:String = LGL_RSA_PRIVATE_KEY) -> String?
-         
-         /// RSA公钥解密
-         LGLCrypt.lgl_rsaDecryptPublic(_ encryptData: String, _ publicKey: String, _ publicKeychainTag:String = LGL_RSA_PUBLIC_KEY) -> String?
-    ```
+```
+    let  publicKey = ""
+    let  privateKeychainTag = ""
+     /// RSA公钥加密
+    let encryptStr = LGLCrypt.lgl_rsaEncrypt("要加密的字符串", publicKey,publicKeychainTag) 
+     
+     /// RSA私钥解密
+    let  privateKey = ""
+    let decryptStr = LGLCrypt.lgl_rsaDecrypt("要解密的字符串", privateKey, privateKeychainTag:String)
+     
+     /// RSA公钥解密
+     let decryptStr = LGLCrypt.lgl_rsaDecryptPublic("要解密的字符串", publicKey, publicKeychainTag)
+```
 
 ## Author
 
